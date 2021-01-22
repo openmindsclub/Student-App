@@ -44,7 +44,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
         date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
   ];
 
-  Widget taskTemplate(notification) {
+  Widget notifTemplate(notification) {
     return Card(
         margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
         color: Colors.white,
@@ -123,7 +123,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
       body: ListView(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        children: notifs.map((notification) => taskTemplate(notification)).toList(),
+        children: notifs.map((notification) => notifTemplate(notification)).toList(),
       ),
     );
   }
