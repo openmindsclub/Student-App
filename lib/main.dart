@@ -22,7 +22,7 @@ void main() {
       '/todoList': (context) => TodoList(),
       '/calendar': (context) => Calendar(),
       '/dashboard': (context) => Dashboard(),
-      '/notifications': (context) => Notifications(),
+      '/notifications': (context) => NotificationsWidget(),
       '/emploiDuTemps': (context) => EmploiDuT(),
       '/actualite': (context) => Actualite(),
       '/settings': (context) => Settings(),
