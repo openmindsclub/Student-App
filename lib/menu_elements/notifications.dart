@@ -7,8 +7,28 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
+
+
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Notifications',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        backgroundColor: Color(0xff43B485),
+        elevation: 0.0,
+      ),
+      drawer: MainDrawer(),
+      body: ListView(
+
+      ),
+    );
   }
 }
