@@ -5,7 +5,7 @@ import 'package:usthb_app/home.dart';
 import 'package:usthb_app/menu_elements/profile.dart';
 import 'package:usthb_app/menu_elements/actualite.dart';
 import 'package:usthb_app/menu_elements/calendar.dart';
-import 'package:usthb_app/menu_elements/emploi_du_temps.dart';
+import 'package:usthb_app/menu_elements/time_table.dart';
 import 'package:usthb_app/menu_elements/settings.dart';
 import 'package:usthb_app/menu_elements/todo_list.dart';
 import 'package:usthb_app/menu_elements/notifications.dart';
