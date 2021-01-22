@@ -69,7 +69,7 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                 ),
-                Padding(
+                Container(
                     padding: EdgeInsets.only(bottom: 10.0),
                     child: ScheduleScroller(),
                   ),
