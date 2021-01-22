@@ -18,7 +18,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
     return Container(
       width: 140,
       margin: EdgeInsets.only(right: 20),
-      height: 210,
+      height: 200,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -45,7 +45,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Text(
               singleActivity.activity,
