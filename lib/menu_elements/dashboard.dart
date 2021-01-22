@@ -13,7 +13,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard'),
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xff43B485),
         elevation: 0.0,
       ),
       drawer: MainDrawer(),
@@ -22,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 20.0),
-            color: Colors.green,
+            color: Color(0xff43B485),
             child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Padding(
@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0)),
-              color: Colors.green,
+              color: Color(0xff43B485),
             ),
             child: Padding(
               padding: EdgeInsets.only(bottom: 20.0),
