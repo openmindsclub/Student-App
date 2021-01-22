@@ -10,7 +10,7 @@ class MainDrawer extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            color: Colors.greenAccent[400],
+            color: Color(0xff43B485),
             child: Column(
               children: <Widget>[
                 SizedBox(height: 20),
@@ -37,7 +37,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.person,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Profile',
@@ -53,7 +53,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.list,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Todo list',
@@ -69,7 +69,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.calendar_today,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Calendar',
@@ -85,7 +85,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.dashboard,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Dashboard',
@@ -101,7 +101,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.notification_important,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Notifications',
@@ -117,7 +117,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.ballot,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Emploi du temps',
@@ -133,7 +133,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.wysiwyg,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Actualité',
@@ -150,7 +150,7 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.settings_rounded,
-              color: Colors.green,
+              color: Color(0xff26BC50),
             ),
             title: Text(
               'Settings',
