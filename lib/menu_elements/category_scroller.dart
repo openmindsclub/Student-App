@@ -10,15 +10,15 @@ class _CategoryScrollerState extends State<CategoryScroller> {
 
   List<Activity> activities = [
     Activity(activity: 'Tasks', totalActivities: 7, done: 4),
-    Activity(activity: 'Notifications', totalActivities: 8, done: 6),
+    Activity(activity: 'Notifications', totalActivities: 8, done: 8),
     Activity(activity: 'Exams', totalActivities: 10, done: 9)
   ];
 
   Widget activityTemplate(singleActivity) {
     return Container(
-      width: 150,
+      width: 140,
       margin: EdgeInsets.only(right: 20),
-      height: 190,
+      height: 210,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -28,17 +28,17 @@ class _CategoryScrollerState extends State<CategoryScroller> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: 80,
+              height: 100,
               width: 80,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
                   CircularProgressIndicator(
                     value: singleActivity.done / singleActivity.totalActivities,
-                    backgroundColor: Colors.grey,
+                    backgroundColor:  Color(0xffDADFE1),
                     strokeWidth: 7.0,
                     valueColor: new AlwaysStoppedAnimation<Color>(
-                        Colors.pink[400]),
+                        Color(0xffFF4C67)),
                   ),
                   Center(child: buildProgress(singleActivity)),
                 ],
@@ -80,7 +80,7 @@ Widget buildProgress(singleActivity) {
   if (singleActivity.isDone()) {
     return Icon(
       Icons.done,
-      color: Colors.green,
+      color: Color(0xffFF4C67),
       size: 56,
     );
   } else {
@@ -88,8 +88,8 @@ Widget buildProgress(singleActivity) {
       '${(singleActivity.totalActivities)}',
       style: TextStyle(
         fontWeight: FontWeight.bold,
-        color: Colors.pinkAccent,
-        fontSize: 24,
+        color: Color(0xffFF4C67),
+        fontSize: 30,
       ),
     );
   }
