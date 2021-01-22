@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:usthb_app/main_drawer.dart';
-import 'package:usthb_app/category_scroller.dart';
+import 'package:usthb_app/menu_elements/category_scroller.dart';
 
 class Dashboard extends StatefulWidget {
   @override
