@@ -7,8 +7,36 @@ class EmploiDuT extends StatefulWidget {
 }
 
 class _EmploiDuTState extends State<EmploiDuT> {
+
+  String domaine = "Informatique";
+  int semester = 1;
+  String section = "A";
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Emploi Du Temps',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        backgroundColor: Color(0xff43B485),
+        elevation: 0.0,
+      ),
+      drawer: MainDrawer(),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
