@@ -34,6 +34,14 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
         title: 'Evenement',
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
         date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
+    Notif(
+        title: 'Acutualite',
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
+        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
+    Notif(
+        title: 'Evenement',
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
+        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
   ];
 
   Widget taskTemplate(notification) {
