@@ -16,19 +16,19 @@ class _CategoryScrollerState extends State<CategoryScroller> {
 
   Widget activityTemplate(singleActivity) {
     return Container(
-      width: 140,
+      width: 120,
       margin: EdgeInsets.only(right: 20),
-      height: 200,
+      height: 160,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(5.0, 20.0, 5.0, 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: 100,
+              height: 80,
               width: 80,
               child: Stack(
                 fit: StackFit.expand,
@@ -36,7 +36,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
                   CircularProgressIndicator(
                     value: singleActivity.done / singleActivity.totalActivities,
                     backgroundColor:  Color(0xffDADFE1),
-                    strokeWidth: 7.0,
+                    strokeWidth: 8.0,
                     valueColor: new AlwaysStoppedAnimation<Color>(
                         Color(0xffFF4C67)),
                   ),
@@ -45,11 +45,15 @@ class _CategoryScrollerState extends State<CategoryScroller> {
               ),
             ),
             SizedBox(
-              height: 30,
+              height: 15,
             ),
             Text(
               singleActivity.activity,
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),

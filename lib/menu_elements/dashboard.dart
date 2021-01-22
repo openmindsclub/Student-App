@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: 5.0),
                 color: Color(0xff43B485),
                 child: Align(
                   alignment: Alignment.bottomLeft,
@@ -52,7 +52,7 @@ class _DashboardState extends State<Dashboard> {
                   color: Color(0xff43B485),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                  padding: EdgeInsets.only(bottom: 5.0),
                   child: CategoryScroller(),
                 ),
               ),
@@ -64,7 +64,7 @@ class _DashboardState extends State<Dashboard> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(top: 10.0),
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10),
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
