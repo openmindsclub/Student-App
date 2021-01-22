@@ -51,29 +51,33 @@ class _DashboardState extends State<Dashboard> {
               ),
             ],
           ),
-          Container(
-            color: Color(0xffF5F8F6),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(top: 10.0),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      '  Upcoming schedules',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+          Expanded(
+            child: Container(
+              color: Color(0xffF5F8F6),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(
+                        '  Upcoming schedules',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    child: ScheduleScroller(),
+                  Expanded(
+                    child:Container(
+                      padding: EdgeInsets.only(bottom: 10.0),
+                      child: ScheduleScroller(),
+                    ),
                   ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

@@ -19,6 +19,18 @@ class _ScheduleScrollerState extends State<ScheduleScroller> {
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
         date: DateTime.parse("1969-07-20 20:18:04Z")),
     Task(
+        title: 'Tasks',
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
+        date: DateTime.parse("1969-07-20 20:18:04Z")),
+    Task(
+        title: 'Notifications',
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
+        date: DateTime.parse("1969-07-20 20:18:04Z")),
+    Task(
+        title: 'Tasks',
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
+        date: DateTime.parse("1969-07-20 20:18:04Z")),
+    Task(
         title: 'Notifications',
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
         date: DateTime.parse("1969-07-20 20:18:04Z")),
