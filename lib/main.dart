@@ -12,6 +12,9 @@ import 'package:usthb_app/menu_elements/notifications.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(
+      fontFamily: "Lato"
+    ),
     initialRoute: '/',
     routes: {
       '/': (context) => Home(),
