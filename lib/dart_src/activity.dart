@@ -4,4 +4,8 @@ class Activity{
   int done;
 
   Activity({this.activity, this.totalActivities, this.done});
+
+  bool isDone(){
+    return totalActivities == done;
+  }
 }
