@@ -19,6 +19,6 @@ const personneSchema = new mongoose.Schema({
     }
 } , {timestamps : true })
 
-const Personne = mongoose.model('personne' , personneSchema);
+const Personne = mongoose.model('Personne' , personneSchema);
 
 module.exports = Personne;
