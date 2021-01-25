@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Groupe = require('./groupe');
+const Personne = require ('./Personne');
+const Groupe = require ('./Groupe');
 
 const etudiantSchema = new mongoose.Schema({
 
@@ -17,6 +18,6 @@ const etudiantSchema = new mongoose.Schema({
     }
 } , {timestamps : true })
 
-const Etudiant = mongoose.model('etudiant' , etudiantSchema);
+const Etudiant = mongoose.model('Etudiant' , etudiantSchema);
 
 module.exports = Etudiant;
