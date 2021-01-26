@@ -5,7 +5,7 @@ const personneSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    prénom : {
+    prenom : {
         type : String,
         required : true
     },
@@ -21,4 +21,5 @@ const personneSchema = new mongoose.Schema({
 
 const Personne = mongoose.model('personne' , personneSchema);
 
-module.exports = Personne;
+module.exports.model = Personne;
+module.exports.schema = personneSchema;
