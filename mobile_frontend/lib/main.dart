@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'main_drawer.dart';
-import 'package:usthb_app/menu_elements/dashboard.dart';
-import 'package:usthb_app/home.dart';
-import 'package:usthb_app/menu_elements/profile.dart';
-import 'package:usthb_app/menu_elements/actualite.dart';
-import 'package:usthb_app/menu_elements/calendar.dart';
-import 'package:usthb_app/menu_elements/time_table.dart';
-import 'package:usthb_app/menu_elements/settings.dart';
-import 'package:usthb_app/menu_elements/todo_list.dart';
-import 'package:usthb_app/menu_elements/notifications.dart';
+import 'package:mobile_frontend/menu_elements/dashboard.dart';
+import 'package:mobile_frontend/home.dart';
+import 'package:mobile_frontend/menu_elements/profile.dart';
+import 'package:mobile_frontend/menu_elements/actualite.dart';
+import 'package:mobile_frontend/menu_elements/calendar.dart';
+import 'package:mobile_frontend/menu_elements/time_table.dart';
+import 'package:mobile_frontend/menu_elements/settings.dart';
+import 'package:mobile_frontend/menu_elements/todo_list.dart';
+import 'package:mobile_frontend/menu_elements/notifications.dart';
 
 void main() {
   runApp(MaterialApp(

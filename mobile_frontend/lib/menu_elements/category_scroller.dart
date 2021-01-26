@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:usthb_app/dart_src/activity.dart';
+import 'package:mobile_frontend/dart_src/activity.dart';
 
 class CategoryScroller extends StatefulWidget {
   @override
