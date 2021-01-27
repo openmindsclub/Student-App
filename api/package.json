@@ -1,0 +1,31 @@
+{
+  "name": "omc-student-app-api",
+  "version": "0.0.1",
+  "description": "a package that will serve as an api for a student mobile app coded with flutter to communicate with the database and fetch data from it, deal with user authentification, and might provide an admin panel",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghiles1010/Student-App.git"
+  },
+  "keywords": [
+    "student-app",
+    "student-life",
+    "student",
+    "mobile-web-dev",
+    "helper-apps"
+  ],
+  "author": "omc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghiles1010/Student-App/issues"
+  },
+  "homepage": "https://github.com/Ghiles1010/Student-App#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mocha": "^8.2.1",
+    "mongoose": "^5.11.12"
+  }
+}
