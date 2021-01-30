@@ -10,6 +10,7 @@ import 'package:mobile_frontend/menu_elements/settings.dart';
 import 'package:mobile_frontend/menu_elements/todo_list.dart';
 import 'package:mobile_frontend/menu_elements/notifications.dart';
 import 'package:mobile_frontend/menu_elements/login.dart';
+import 'package:mobile_frontend/menu_elements/register.dart';
 
 
 void main() {
@@ -20,6 +21,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Home(),
+      '/register': (context) => Register(),
       '/login': (context) => Login(),
       '/profile': (context) => Profile(),
       '/todoList': (context) => TodoList(),
