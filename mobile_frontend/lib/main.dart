@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_drawer.dart';
+import 'package:mobile_frontend/main_drawer.dart';
 import 'package:mobile_frontend/menu_elements/dashboard.dart';
 import 'package:mobile_frontend/home.dart';
 import 'package:mobile_frontend/menu_elements/profile.dart';
@@ -9,6 +9,8 @@ import 'package:mobile_frontend/menu_elements/time_table.dart';
 import 'package:mobile_frontend/menu_elements/settings.dart';
 import 'package:mobile_frontend/menu_elements/todo_list.dart';
 import 'package:mobile_frontend/menu_elements/notifications.dart';
+import 'package:mobile_frontend/menu_elements/login.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -18,6 +20,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Home(),
+      '/login': (context) => Login(),
       '/profile': (context) => Profile(),
       '/todoList': (context) => TodoList(),
       '/calendar': (context) => Calendar(),
