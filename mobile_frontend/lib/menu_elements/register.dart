@@ -184,16 +184,7 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(
                         height: 50,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                              borderSide: BorderSide(color: Colors.white, width: 0.0),
-                            ),
-                          ),
-                        ),
+                        child: DropDownList(),
                       ),
                     ]
                 ),
@@ -220,6 +211,56 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DropDownList extends StatefulWidget {
+  DropDownList({Key key}) : super(key: key);
+
+  @override
+  _DropDownList createState() => _DropDownList();
+}
+
+class _DropDownList extends State<DropDownList> {
+  String dropdownValue = 'Etudiant';
+  List<String> _comboList = <String>['Etudiant', 'Enseignant'];
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: DropdownButtonHideUnderline (
+            child: DropdownButton<String>(
+              value: dropdownValue,
+              icon: Icon(Icons.keyboard_arrow_down),
+              iconSize: 40,
+              iconEnabledColor: Color(0xff43B485),
+              elevation: 16,
+              isExpanded: true,
+              style: TextStyle(color: Colors.black),
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
+              },
+              items: _comboList.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
           ),
         ),
