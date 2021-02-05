@@ -243,6 +243,9 @@ class _DropDownList extends State<DropDownList> {
           padding: const EdgeInsets.all(10.0),
           child: DropdownButtonHideUnderline (
             child: DropdownButton<String>(
+              onTap: (){
+                FocusManager.instance.primaryFocus.unfocus();
+              },
               value: dropdownValue,
               icon: Icon(Icons.keyboard_arrow_down),
               iconSize: 40,
