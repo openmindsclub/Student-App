@@ -57,107 +57,109 @@ class _LoginState extends State<Login> {
                     )
                   ],
                 ),
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                        margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          boxShadow: [
-                            new BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 2.0,
-                            ),
-                          ],
-                        ),
-                        child: Form(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "Email",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              SizedBox(
-                                height: 50,
-                                child: TextFormField(
-                                    decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: new BorderRadius.circular(10.0),
-                                    borderSide: new BorderSide(),
-                                  ),
-                                  hintText: 'exp: exemple@gmail.com',
-                                )),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "Password",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              SizedBox(
-                                height: 50,
-                                child: TextFormField(
-                                  obscureText: true,
-                                  enableSuggestions: false,
-                                  autocorrect: false,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius:
-                                          new BorderRadius.circular(10.0),
-                                      borderSide: new BorderSide(),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Center(
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5.0),
-                                        side: BorderSide(color: Color(0xff43B485))
-                                      ),
-                                      backgroundColor: Color(0xff43B485),
-                                    ),
-                                    child: Text(
-                                      "Connexion",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  ),
+                Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            boxShadow: [
+                              new BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 2.0,
                               ),
                             ],
                           ),
+                          child: Form(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Email",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                  child: TextFormField(
+                                      decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: new BorderRadius.circular(10.0),
+                                      borderSide: new BorderSide(),
+                                    ),
+                                    hintText: 'exp: exemple@gmail.com',
+                                  )),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Password",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                  child: TextFormField(
+                                    obscureText: true,
+                                    enableSuggestions: false,
+                                    autocorrect: false,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            new BorderRadius.circular(10.0),
+                                        borderSide: new BorderSide(),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Center(
+                                    child: ElevatedButton(
+                                      onPressed: () {},
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(5.0),
+                                          side: BorderSide(color: Color(0xff43B485))
+                                        ),
+                                        backgroundColor: Color(0xff43B485),
+                                      ),
+                                      child: Text(
+                                        "Connexion",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ]),

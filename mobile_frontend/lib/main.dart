@@ -18,7 +18,7 @@ void main() {
     theme: ThemeData(
       fontFamily: "Lato"
     ),
-    initialRoute: '/',
+    initialRoute: '/login',
     routes: {
       '/': (context) => Home(),
       '/register': (context) => Register(),
