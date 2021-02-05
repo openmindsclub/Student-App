@@ -136,21 +136,23 @@ class _LoginState extends State<Login> {
                               ),
                               Center(
                                   child: ElevatedButton(
-                                onPressed: () {},
-                                style: TextButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      side: BorderSide(color: Color(0xff43B485))),
-                                  backgroundColor: Color(0xff43B485),
-                                ),
-                                child: Text(
-                                  "Connexion",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
+                                    onPressed: () {},
+                                    style: TextButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                        side: BorderSide(color: Color(0xff43B485))
+                                      ),
+                                      backgroundColor: Color(0xff43B485),
+                                    ),
+                                    child: Text(
+                                      "Connexion",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              )),
+                              ),
                             ],
                           ),
                         ),
@@ -171,7 +173,9 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/register');
+                },
                 child: Text(
                   "I don't have an account",
                   style: TextStyle(
