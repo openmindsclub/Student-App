@@ -5,6 +5,7 @@ import 'package:mobile_frontend/home.dart';
 import 'package:mobile_frontend/menu_elements/profile.dart';
 import 'package:mobile_frontend/menu_elements/actualite.dart';
 import 'package:mobile_frontend/menu_elements/calendar.dart';
+import 'package:mobile_frontend/menu_elements/register_student.dart';
 import 'package:mobile_frontend/menu_elements/time_table.dart';
 import 'package:mobile_frontend/menu_elements/settings.dart';
 import 'package:mobile_frontend/menu_elements/todo_list.dart';
@@ -22,6 +23,7 @@ void main() {
     routes: {
       '/': (context) => Home(),
       '/register': (context) => Register(),
+      '/register_student': (context) => RegisterStudent(),
       '/login': (context) => Login(),
       '/profile': (context) => Profile(),
       '/todoList': (context) => TodoList(),

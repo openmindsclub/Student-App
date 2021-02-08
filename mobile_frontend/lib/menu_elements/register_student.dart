@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/main_drawer.dart';
 
-class Register extends StatefulWidget {
+class RegisterStudent extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterStudentState createState() => _RegisterStudentState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterStudentState extends State<RegisterStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
           title: Container(
             padding: EdgeInsets.fromLTRB(5, 20, 0, 0),
             child: Text(
-              'Inscription',
+              'Inscription Etudiant',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 25,
@@ -38,42 +38,10 @@ class _RegisterState extends State<Register> {
             child: ListView(
               children: <Widget>[
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Nom",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.white
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    SizedBox(
-                      height: 50,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
-                            borderSide: BorderSide(color: Colors.white, width: 0.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ]
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Prénom",
+                        "Matricule",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -105,7 +73,7 @@ class _RegisterState extends State<Register> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Email",
+                        "Année",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -117,15 +85,8 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(
                         height: 50,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                              borderSide: BorderSide(color: Colors.white, width: 0.0),
-                            ),
-                          ),
+                        child: DropDownList(
+                            comboList : <String>['L1', 'L2', 'L3', 'M1', 'M2'],
                         ),
                       ),
                     ]
@@ -137,7 +98,7 @@ class _RegisterState extends State<Register> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Mot de passe",
+                        "Faculté",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -149,18 +110,8 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(
                         height: 50,
-                        child: TextFormField(
-                          obscureText: true,
-                          enableSuggestions: false,
-                          autocorrect: false,
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                              borderSide: BorderSide(color: Colors.white, width: 0.0),
-                            ),
-                          ),
+                        child: DropDownList(
+                            comboList : <String>['Faculté de Chimie', 'Faculté de Physique', 'Faculté de Math', 'Departement d\'informatique'],
                         ),
                       ),
                     ]
@@ -172,7 +123,7 @@ class _RegisterState extends State<Register> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Statut",
+                        "Spécialité",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -186,7 +137,63 @@ class _RegisterState extends State<Register> {
                         height: 50,
                         child: DropDownList(
                             comboList : <String>['Etudiant', 'Enseignant'],
-                            dropdownValue :'Etudiant'
+                        ),
+                      ),
+                    ]
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Section",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.white
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                        height: 50,
+                        child: DropDownList(
+                            comboList : <String>['Etudiant', 'Enseignant'],
+                        ),
+                      ),
+                    ]
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Groupe",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.white
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                        height: 50,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(10.0),
+                              borderSide: BorderSide(color: Colors.white, width: 0.0),
+                            ),
+                          ),
                         ),
                       ),
                     ]
@@ -196,9 +203,7 @@ class _RegisterState extends State<Register> {
                 ),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/register_student');
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -226,15 +231,18 @@ class _RegisterState extends State<Register> {
 
 class DropDownList extends StatefulWidget {
   List<String> comboList;
-  String dropdownValue;
 
-  DropDownList({Key key, this.comboList, this.dropdownValue}) : super(key: key);
+
+  DropDownList({Key key, this.comboList}) : super(key: key);
 
   @override
   _DropDownList createState() => _DropDownList();
 }
 
 class _DropDownList extends State<DropDownList> {
+
+  String dropdownValue;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -251,7 +259,7 @@ class _DropDownList extends State<DropDownList> {
               onTap: (){
                 FocusManager.instance.primaryFocus.unfocus();
               },
-              value: widget.dropdownValue,
+              value : dropdownValue,
               icon: Icon(Icons.keyboard_arrow_down),
               iconSize: 40,
               iconEnabledColor: Color(0xff43B485),
@@ -260,7 +268,7 @@ class _DropDownList extends State<DropDownList> {
               style: TextStyle(color: Colors.black),
               onChanged: (String newValue) {
                 setState(() {
-                  widget.dropdownValue = newValue;
+                  dropdownValue = newValue;
                 });
               },
               items: widget.comboList.map<DropdownMenuItem<String>>((String value) {
