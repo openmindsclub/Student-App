@@ -184,7 +184,10 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(
                         height: 50,
-                        child: DropDownList(),
+                        child: DropDownList(
+                            comboList : <String>['Etudiant', 'Enseignant'],
+                            dropdownValue :'Etudiant'
+                        ),
                       ),
                     ]
                 ),
@@ -220,16 +223,16 @@ class _RegisterState extends State<Register> {
 }
 
 class DropDownList extends StatefulWidget {
-  DropDownList({Key key}) : super(key: key);
+  List<String> comboList;
+  String dropdownValue;
+
+  DropDownList({Key key, this.comboList, this.dropdownValue}) : super(key: key);
 
   @override
   _DropDownList createState() => _DropDownList();
 }
 
 class _DropDownList extends State<DropDownList> {
-  String dropdownValue = 'Etudiant';
-  List<String> _comboList = <String>['Etudiant', 'Enseignant'];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -246,7 +249,7 @@ class _DropDownList extends State<DropDownList> {
               onTap: (){
                 FocusManager.instance.primaryFocus.unfocus();
               },
-              value: dropdownValue,
+              value: widget.dropdownValue,
               icon: Icon(Icons.keyboard_arrow_down),
               iconSize: 40,
               iconEnabledColor: Color(0xff43B485),
@@ -255,10 +258,10 @@ class _DropDownList extends State<DropDownList> {
               style: TextStyle(color: Colors.black),
               onChanged: (String newValue) {
                 setState(() {
-                  dropdownValue = newValue;
+                  widget.dropdownValue = newValue;
                 });
               },
-              items: _comboList.map<DropdownMenuItem<String>>((String value) {
+              items: widget.comboList.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
