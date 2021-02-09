@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/main_drawer.dart';
-import 'package:mobile_frontend/menu_elements/dashboard.dart';
-import 'package:mobile_frontend/home.dart';
-import 'package:mobile_frontend/menu_elements/profile.dart';
-import 'package:mobile_frontend/menu_elements/actualite.dart';
-import 'package:mobile_frontend/menu_elements/calendar.dart';
-import 'package:mobile_frontend/menu_elements/register_student.dart';
-import 'package:mobile_frontend/menu_elements/time_table.dart';
-import 'package:mobile_frontend/menu_elements/settings.dart';
-import 'package:mobile_frontend/menu_elements/todo_list.dart';
-import 'package:mobile_frontend/menu_elements/notifications.dart';
-import 'package:mobile_frontend/menu_elements/login.dart';
-import 'package:mobile_frontend/menu_elements/register.dart';
+import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/screens/home/dashboard.dart';
+import 'package:mobile_frontend/screens/home/home.dart';
+import 'package:mobile_frontend/screens/home/profile.dart';
+import 'package:mobile_frontend/screens/home/actualite.dart';
+import 'package:mobile_frontend/screens/home/calendar.dart';
+import 'package:mobile_frontend/screens/home/time_table.dart';
+import 'package:mobile_frontend/screens/home/settings.dart';
+import 'package:mobile_frontend/screens/home/todo_list.dart';
+import 'package:mobile_frontend/screens/home/notifications.dart';
+
+import 'package:mobile_frontend/screens/authenticate/login.dart';
+import 'package:mobile_frontend/screens/authenticate/register.dart';
+import 'package:mobile_frontend/screens/authenticate/register_student.dart';
 
 
 void main() {

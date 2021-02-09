@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/main_drawer.dart';
 
 class RegisterStudent extends StatefulWidget {
   @override

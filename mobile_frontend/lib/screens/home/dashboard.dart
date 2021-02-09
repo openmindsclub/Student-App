@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/main_drawer.dart';
-import 'package:mobile_frontend/menu_elements/category_scroller.dart';
-import 'package:mobile_frontend/menu_elements/schedule_scroller.dart';
+import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/screens/home/category_scroller.dart';
+import 'package:mobile_frontend/screens/home/schedule_scroller.dart';
 
 class Dashboard extends StatefulWidget {
   @override
