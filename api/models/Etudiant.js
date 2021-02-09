@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-const Personne = require("./Personne");
+const Personne = require ('./Personne');
+const Groupe = require ('./Groupe');
+const Task = require('./Task');
+
 const etudiantSchema = new mongoose.Schema({
 
     matricule : {
@@ -10,9 +13,16 @@ const etudiantSchema = new mongoose.Schema({
         type : Personne.schema,
         required : true
     },
+    groupe : {
+        type : Groupe.schema,
+        required : true
+    },
+    tasks : [{
+        type : Task.schema,
+        required : true
+    }],
 } , {timestamps : true })
 
-const Etudiant = mongoose.model('etudiant' , etudiantSchema);
+const Etudiant = mongoose.model('Etudiant' , etudiantSchema);
 
-module.exports.model = Etudiant;
-module.exports.schema = etudiantSchema;
+module.exports = Etudiant;
