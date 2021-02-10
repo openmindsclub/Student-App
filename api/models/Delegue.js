@@ -2,12 +2,8 @@ const mongoose = require('mongoose');
 const Etudiant = require('./Etudiant');
 
 const delegueSchema = new mongoose.Schema({
-    field : {
-        type : String,
-        required : true
-    },
     etudiant : {
-        type : new Etudiant(),
+        type : Etudiant.schema ,
         required : true
     }
 } , {timestamps : true })

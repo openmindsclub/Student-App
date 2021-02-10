@@ -9,4 +9,4 @@ const fcltSchema = new mongoose.Schema({
 
 const Faculte = mongoose.model('Faculte' , fcltSchema);
 
-module.exports = Faculte;
+module.exports= Faculte;

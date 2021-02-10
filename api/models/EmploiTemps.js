@@ -7,7 +7,7 @@ const emplSchema = new mongoose.Schema({
         required : true
     },
     section : {
-        type : new Section(),
+        type : Section.schema,
         required : true
     }
 } , {timestamps : true })
