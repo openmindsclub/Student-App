@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_frontend/models/User.dart';
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
 class RegisterStudent extends StatefulWidget {
+
+  User userInfos;
+
+  RegisterStudent({Key key, this.userInfos}) : super(key: key);
+
   @override
   _RegisterStudentState createState() => _RegisterStudentState();
 }
@@ -136,7 +142,7 @@ class _RegisterStudentState extends State<RegisterStudent> {
                       SizedBox(
                         height: 50,
                         child: DropDownList(
-                            comboList : <String>['Etudiant', 'Enseignant'],
+                            comboList : <String>['ISIL', 'ACAD'],
                         ),
                       ),
                     ]
@@ -161,7 +167,7 @@ class _RegisterStudentState extends State<RegisterStudent> {
                       SizedBox(
                         height: 50,
                         child: DropDownList(
-                            comboList : <String>['Etudiant', 'Enseignant'],
+                            comboList : <String>['A', 'B'],
                         ),
                       ),
                     ]
@@ -203,7 +209,9 @@ class _RegisterStudentState extends State<RegisterStudent> {
                 ),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(widget.userInfos.firstName + " " + widget.userInfos.lastName + " " + widget.userInfos.email + " " + widget.userInfos.password);
+                    },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),

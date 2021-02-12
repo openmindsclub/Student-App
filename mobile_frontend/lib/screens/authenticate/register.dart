@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'package:mobile_frontend/screens/authenticate/register_student.dart';
+
 import 'package:mobile_frontend/shared/field_widgets.dart';
+
+import 'package:mobile_frontend/models/User.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -7,6 +12,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+
+  final _emailAdress = GlobalKey<FormFieldState<String>>();
+  final _password = GlobalKey<FormFieldState<String>>();
+  final _lastName = GlobalKey<FormFieldState<String>>();
+  final _firstName = GlobalKey<FormFieldState<String>>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +65,7 @@ class _RegisterState extends State<Register> {
                     SizedBox(
                       height: 50,
                       child: TextFormField(
+                        key: _lastName,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
@@ -86,6 +98,7 @@ class _RegisterState extends State<Register> {
                       SizedBox(
                         height: 50,
                         child: TextFormField(
+                          key: _firstName,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
@@ -118,6 +131,7 @@ class _RegisterState extends State<Register> {
                       SizedBox(
                         height: 50,
                         child: TextFormField(
+                          key: _emailAdress,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
@@ -150,6 +164,7 @@ class _RegisterState extends State<Register> {
                       SizedBox(
                         height: 50,
                         child: TextFormField(
+                          key: _password,
                           obscureText: true,
                           enableSuggestions: false,
                           autocorrect: false,
@@ -196,7 +211,28 @@ class _RegisterState extends State<Register> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/register_student');
+                      bool myemail = User.checkEmail(_emailAdress.currentState.value);
+                      bool myfirstname = User.checkName(_firstName.currentState.value);
+                      bool mylastname = User.checkName(_lastName.currentState.value);
+                      if (!myemail){
+                        print('this is not an email');
+                        return;
+                      }
+                      if (!myfirstname){
+                        print('this is not an name');
+                        return;
+                      }
+                      if (!mylastname){
+                        print('this is not an name');
+                        return;
+                      }
+                      if (_password.currentState.value.isEmpty){
+                        print('this is not a password');
+                        return;
+                      }
+                      User userInfos = User.registerInfos(_emailAdress.currentState.value, _password.currentState.value, _lastName.currentState.value, _firstName.currentState.value);
+                      print(userInfos.firstName + " " + userInfos.lastName + " " + userInfos.email + " " + userInfos.password);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterStudent(userInfos : userInfos)));
                     },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(

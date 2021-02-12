@@ -12,7 +12,7 @@ import 'package:mobile_frontend/screens/home/notifications.dart';
 
 import 'package:mobile_frontend/screens/authenticate/login.dart';
 import 'package:mobile_frontend/screens/authenticate/register.dart';
-import 'package:mobile_frontend/screens/authenticate/register_student.dart';
+
 
 
 void main() {
@@ -24,7 +24,6 @@ void main() {
     routes: {
       '/': (context) => Home(),
       '/register': (context) => Register(),
-      '/register_student': (context) => RegisterStudent(),
       '/login': (context) => Login(),
       '/profile': (context) => Profile(),
       '/todoList': (context) => TodoList(),

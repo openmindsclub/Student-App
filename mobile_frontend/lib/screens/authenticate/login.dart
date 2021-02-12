@@ -1,12 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'package:mobile_frontend/models/User.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+
+  final _emailAdress = GlobalKey<FormFieldState<String>>();
+  final _password = GlobalKey<FormFieldState<String>>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,13 +102,15 @@ class _LoginState extends State<Login> {
                                 SizedBox(
                                   height: 50,
                                   child: TextFormField(
+                                    key: _emailAdress,
                                       decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: new BorderRadius.circular(10.0),
-                                      borderSide: new BorderSide(),
+                                        border: OutlineInputBorder(
+                                          borderRadius: new BorderRadius.circular(10.0),
+                                          borderSide: new BorderSide(),
+                                        ),
+                                        hintText: 'exp: exemple@gmail.com',
                                     ),
-                                    hintText: 'exp: exemple@gmail.com',
-                                  )),
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -120,6 +128,7 @@ class _LoginState extends State<Login> {
                                 SizedBox(
                                   height: 50,
                                   child: TextFormField(
+                                    key: _password,
                                     obscureText: true,
                                     enableSuggestions: false,
                                     autocorrect: false,
@@ -137,7 +146,18 @@ class _LoginState extends State<Login> {
                                 ),
                                 Center(
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        if (_emailAdress.currentState.value.isEmpty) {
+                                          print('Please enter an email');
+                                        } else{
+                                          bool myemail = User.checkEmail(_emailAdress.currentState.value);
+                                          if (myemail){
+                                            print('good email');
+                                          } else {
+                                            print('this is not an email');
+                                          }
+                                        }
+                                      },
                                       style: TextButton.styleFrom(
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(5.0),
