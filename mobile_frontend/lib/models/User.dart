@@ -1,3 +1,5 @@
+import 'package:mobile_frontend/services/rest_api.dart';
+
 import 'enumeration.dart';
 
 class User {
@@ -18,6 +20,8 @@ class User {
       this.faculty, this.studyYear, this.speciality, this.section, this.group){
       // check email, id, last name and first name format
       // connect to api to create the user
+      Api api = Api();
+      //api.register();
   }
 
   User.loginConstructor(this.email, this.password){
