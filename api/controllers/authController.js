@@ -2,11 +2,12 @@ const Etudiant = require("../models/Etudiant");
 const { add } = require("./etudiantController");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+const { handleServerError } = require("../utils");
 
 module.exports.authentificate = function (req, response) {
-    Etudiant.findOne({ "email": req.body.email },["password"], (err, doc) => {
+    Etudiant.findOne({ "personne.email": req.body.email },["personne.password"], (err, doc) => {
         if (doc) {
-            bcrypt.compare(req.body.password, doc.password, (err, res) => {
+            bcrypt.compare(req.body.password, doc.personne.password, (err, res) => {
                 if (err) handleServerError(err,response);
                 if (res) {
                     console.log(doc);
