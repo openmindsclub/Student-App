@@ -21,12 +21,14 @@ class User {
       // check email, id, last name and first name format
       // connect to api to create the user
       Api api = Api();
-      //api.register();
+      api.register("test");
   }
 
   User.loginConstructor(this.email, this.password){
       // check email format,
       // connect to api for autentication
+      Api api = Api();
+      api.login("test");
   }
 
   static bool checkEmail(String email){

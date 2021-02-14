@@ -31,8 +31,22 @@ class Api{
         "num": "3",
         "num_groupe": "1"
         },
+    );
+    print(response.data);
+    print(response.headers);
+    print(response.request);
+    print(response.statusCode);
+  }
+
+  Future<bool> login(var dataUser) async {
+    Response response;
+    response = await dio.post(
+      "login",
+      data: {
+        "email": "myemail@gmail.com",
+        "password": "azerty"
+      },
       //responseType : ResponseType.JSON,
-      options: Options(method:"GET"),
     );
     print(response.data);
     print(response.headers);

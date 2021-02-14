@@ -156,6 +156,7 @@ class _LoginState extends State<Login> {
                                           } else {
                                             print('this is not an email');
                                           }
+                                          User.loginConstructor(_emailAdress.currentState.value, "password");
                                         }
                                       },
                                       style: TextButton.styleFrom(
