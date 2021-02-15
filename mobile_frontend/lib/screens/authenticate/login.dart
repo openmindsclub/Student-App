@@ -146,7 +146,8 @@ class _LoginState extends State<Login> {
                                 ),
                                 Center(
                                     child: ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        print(_emailAdress.currentState.value);
                                         if (_emailAdress.currentState.value.isEmpty) {
                                           print('Please enter an email');
                                         } else{
@@ -156,7 +157,14 @@ class _LoginState extends State<Login> {
                                           } else {
                                             print('this is not an email');
                                           }
-                                          User.loginConstructor(_emailAdress.currentState.value, "password");
+                                          var user = await User.login(_emailAdress.currentState.value, _password.currentState.value);
+                                          print(user);
+                                          if(user == false){
+                                            print("I'm asking you to register or login");
+                                          } else {
+                                            print("user authentified");
+                                            print(user.email + " " + user.id);
+                                          }
                                         }
                                       },
                                       style: TextButton.styleFrom(

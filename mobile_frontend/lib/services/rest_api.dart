@@ -1,7 +1,4 @@
 import 'package:dio/dio.dart';
-import 'dart:convert';
-
-import 'package:mobile_frontend/models/User.dart';
 
 class Api{
   Dio dio;
@@ -38,20 +35,16 @@ class Api{
     print(response.statusCode);
   }
 
-  Future<bool> login(var dataUser) async {
+  Future<Response> login(var dataLogin) async {
+    print(dataLogin);
     Response response;
     response = await dio.post(
       "login",
-      data: {
-        "email": "myemail@gmail.com",
-        "password": "azerty"
-      },
+      data: dataLogin,
       //responseType : ResponseType.JSON,
     );
+    return response;
     print(response.data);
-    print(response.headers);
-    print(response.request);
-    print(response.statusCode);
   }
 
 }
