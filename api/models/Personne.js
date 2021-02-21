@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Notification = require('./Notification');
 
 const personneSchema = new mongoose.Schema({
     nom : {
@@ -11,12 +12,17 @@ const personneSchema = new mongoose.Schema({
     },
     email : {
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
     password : {
         type : String,
         required : true
-    }
+    },
+    notifications : [{
+        type : Notification.schema,
+        required : true
+    }]
 } , {timestamps : true })
 
 const Personne = mongoose.model('Personne' , personneSchema);
