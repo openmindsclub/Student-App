@@ -1,21 +1,15 @@
 const mongoose = require('mongoose');
-const Section = require('./Section');
-const Evenement = require('./Evenement');
+const Etudiant = require ('./Etudiant');
+
 const grpSchema = new mongoose.Schema({
     num_groupe : {
         type : Number,
         required : true
     },
-    section : {
-        type : Section.schema,
-        required : true
-    },
-    evenement: [
-        {
-            type : Evenement.schema,
+    etudiants : [{
+            type : Etudiant.schema,
             required : true
-        }
-    ]
+    }]
 } , {timestamps : true })
 
 const Groupe = mongoose.model('Groupe' , grpSchema);
