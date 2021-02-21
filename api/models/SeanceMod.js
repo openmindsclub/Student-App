@@ -3,7 +3,7 @@ const Seance = require('./Seance');
 
 const scmodifSchema = new mongoose.Schema({
     seance : {
-        type : new Seance(),
+        type : Seance.schema,
         required : true
     }
 },{timestamps : true } )
