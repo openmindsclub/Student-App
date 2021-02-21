@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const Section = require('./Section');
+const Seance = require('./Seance');
 
 const emplSchema = new mongoose.Schema({
     field : {
         type : String,
         required : true
     },
-    section : {
-        type : Section.schema,
+    seances : [{
+        type : Seance.schema,
         required : true
-    }
+    }]
 } , {timestamps : true })
 
 const Emploi = mongoose.model('EmploiTemps' , emplSchema);
