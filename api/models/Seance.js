@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Groupe = require('./Groupe');
-const Emploi = require('./EmploiTemps');
 
 const seanceSchema = new mongoose.Schema({
     module : {
@@ -19,14 +18,10 @@ const seanceSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    enseignat: {
-        type : new Enseignant(),
+    groupes : [{
+        type : Groupe.Schema,
         required : true
-    },
-    emploiTemps : {
-        type : new Emploi(), 
-        required : true
-    }
+    }]
 } , {timestamps : true })
 
 const Seance = mongoose.model('Seance' , seanceSchema);
