@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Personne = require('Personne')
 
 const notiSchema = new mongoose.Schema({
     titre : {
@@ -12,10 +11,6 @@ const notiSchema = new mongoose.Schema({
     },
     date : {
         type : String,
-        required : true
-    },
-    personne : {
-        type : Personne.schema,
         required : true
     }
 } , {timestamps : true })
