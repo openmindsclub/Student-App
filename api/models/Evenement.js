@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Section = require("./Section");
+const Groupe = require("./Groupe");
 
 const evnmSchema = new mongoose.Schema({
     type : {
@@ -12,7 +14,15 @@ const evnmSchema = new mongoose.Schema({
     module : {
         type : String,
         required : true
-    }
+    },
+    sections : [{
+        type : Section.Schema,
+        required : true
+    }],
+    groupes : [{
+        type : Groupe.Schema,
+        required : true
+    }]
 } , {timestamps : true })
 
 const Evenement = mongoose.model('évènement' , evnmSchema);
