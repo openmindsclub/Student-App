@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Specialite = require('./Specialite');
+const Groupe = require('./Groupe');
+const EmploiTemps = require('./EmploiTemps');
 
 const sctSchema = new mongoose.Schema({
     annee: {
@@ -10,8 +11,12 @@ const sctSchema = new mongoose.Schema({
         type : Number,
         required : true
     },
-    specialite : {
-        type : Specialite.schema,
+    groupes : [{
+        type : Groupe.schema,
+        required : true
+    }],
+    emploiTemps : {
+        type : EmploiTemps.schema,
         required : true
     }
 } , {timestamps : true })
