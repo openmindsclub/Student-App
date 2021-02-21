@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const Faculte = require('./Faculte');
+const Section = require('./Section');
 
 const spcSchema = new mongoose.Schema({
     nom : {
         type : String,
         required : true
     },
-    faculte : {
-        type : Faculte.schema,
+    sections : [{
+        type : Section.schema,
         required : true
-    }
+    }],
 } , {timestamps : true })
 
 const Specialite = mongoose.model('Specialite' , spcSchema);
