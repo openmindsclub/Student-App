@@ -16,23 +16,14 @@ class Api{
     Response response;
     response = await dio.post(
       "register",
-      data: {
-        "email": "myemail@gmail.com",
-        "nom": "khouas",
-        "prenom": "aymen",
-        "matricule": "161731063111",
-        "password": "azerty",
-        "annee": 3,
-        "specialite": "ISIL",
-        "faculte": "Departement info",
-        "num": "3",
-        "num_groupe": "1"
-        },
+      data: dataUser,
     );
-    print(response.data);
-    print(response.headers);
-    print(response.request);
-    print(response.statusCode);
+
+    if (response.statusCode == 200){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Future<Response> login(var dataLogin) async {
@@ -44,7 +35,6 @@ class Api{
       //responseType : ResponseType.JSON,
     );
     return response;
-    print(response.data);
   }
 
 }

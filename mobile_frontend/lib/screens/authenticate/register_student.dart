@@ -13,6 +13,9 @@ class RegisterStudent extends StatefulWidget {
 }
 
 class _RegisterStudentState extends State<RegisterStudent> {
+
+  final _studentID = GlobalKey<FormFieldState<String>>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +63,7 @@ class _RegisterStudentState extends State<RegisterStudent> {
                       SizedBox(
                         height: 50,
                         child: TextFormField(
+                          key: _studentID,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
@@ -209,8 +213,21 @@ class _RegisterStudentState extends State<RegisterStudent> {
                 ),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {
-                      print(widget.userInfos.firstName + " " + widget.userInfos.lastName + " " + widget.userInfos.email + " " + widget.userInfos.password);
+                    onPressed: () async {
+                      bool response = await User.register(
+                          widget.userInfos.email,
+                          widget.userInfos.password,
+                          widget.userInfos.lastName,
+                          widget.userInfos.firstName,
+                          _studentID.currentState.value,
+                          "departement informatique","3","isil","1","2"
+                      );
+                      if (response){
+                        print("user created");
+                        // login
+                      } else {
+                        // afficher message d'erreur
+                      }
                     },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(

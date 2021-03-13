@@ -61,12 +61,24 @@ class User {
   }
 
   // I'll change this to a static method
-  User.registerConstructor(this.email, this.password, this.lastName, this.firstName, this.studentID,
-      this.faculty, this.studyYear, this.speciality, this.section, this.group){
+  static Future register(email, password, lastName, firstName, studentID,
+      faculty, studyYear, speciality, section, group) async{
     // check email, id, last name and first name format
     // connect to api to create the user
     Api api = Api();
-    api.register("test");
+    var data = {
+      "email": email,
+      "nom": firstName,
+      "prenom": lastName,
+      "matricule": studentID,
+      "password": password,
+      "annee": studyYear,
+      "specialite": speciality,
+      "faculte": faculty,
+      "num": section,
+      "num_groupe": group
+    };
+    return api.register(data);
   }
 
   static bool checkEmail(String email){
