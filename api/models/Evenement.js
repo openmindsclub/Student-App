@@ -16,11 +16,11 @@ const evnmSchema = new mongoose.Schema({
         required : true
     },
     sections : [{
-        type : Section.Schema,
+        type : Section.schema,
         required : true
     }],
     groupes : [{
-        type : Groupe.Schema,
+        type : Groupe.schema,
         required : true
     }]
 } , {timestamps : true })

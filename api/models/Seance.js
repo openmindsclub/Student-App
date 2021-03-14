@@ -19,7 +19,7 @@ const seanceSchema = new mongoose.Schema({
         required : true
     },
     groupes : [{
-        type : Groupe.Schema,
+        type : Groupe.schema,
         required : true
     }]
 } , {timestamps : true })
