@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 import 'package:mobile_frontend/services/rest_api.dart';
 
 import 'enumeration.dart';
@@ -25,38 +27,29 @@ class User {
       // connect to api for autentication
       Api api = Api();
       print(email + " " + password);
-      var response = await api.login({"email":email,"password":password});
 
-      switch(response.statusCode) {
-        case 404: {
-          // user not found
-          return false;
-        }
-        break;
+      try{
+        var response = await api.login({"email":email,"password":password});
 
-        case 401: {
-          // incorrect password
-          return false;
-        }
-        break;
-
-        case 200: {
+        if (response.statusCode == 200){
           // request worked perfectly
           // create a user
           User user = User(response.data["userId"], email);
           print(response.data);
           // load user data from the server
           // store the token
-
+          // return the user
           return user;
         }
-        break;
-
-        default: {
-          // this isn't supposed to happen
-          return false;
+      } on DioError catch (e){
+        if(e.response.statusCode == 404){
+          print(e.response.statusCode);
+        }else if (e.response.statusCode == 401){
+          print(e.response.statusCode);
         }
-        break;
+        // we're returning 404 or 401, 404 means the email doesn't exist and 401 the passwords don't match
+        // we'll change that later if needed
+        return e.response.statusCode;
       }
   }
 
