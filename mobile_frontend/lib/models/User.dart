@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dio/dio.dart';
 
 import 'package:mobile_frontend/services/rest_api.dart';
@@ -21,6 +22,11 @@ class User {
 
   // checking the register infos in the first register screen and transfer them from a screen to another
   User.registerInfos(this.email, this.password, this.lastName, this.firstName);
+
+  void store_token() async{
+    final storage = new FlutterSecureStorage();
+    await storage.write(key: 'jwt', value: id);
+  }
 
   static Future login(String email, String password) async {
       // check email format,
