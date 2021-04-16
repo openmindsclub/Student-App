@@ -166,6 +166,8 @@ class _LoginState extends State<Login> {
                                           } else {
                                             print("user authentified");
                                             print(user.email + " " + user.id);
+                                            // push to dashboard
+                                            Navigator.popAndPushNamed(context, '/dashboard');
                                           }
                                         }
                                       },

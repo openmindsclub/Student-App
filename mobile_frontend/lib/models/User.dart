@@ -27,7 +27,7 @@ class User {
   }
 
   void makeSessionInactive(){
-    // we call this function after the user disconnect or after the tokken is
+    // we call this function after the user disconnect or after the tokken is dead
     activeSession = false;
     // update active session in the database
   }
@@ -50,6 +50,8 @@ class User {
   }
 
   static Future<User> getUser() async {
+    // this function is a test for now it will be rewritten later when the database schema and models are finished,
+
     var db = await DataBase.getDB();
     List<Map> info = await db.query("USERPRINCIPAL",
         columns: ['id', 'email', 'sessionActive']);
