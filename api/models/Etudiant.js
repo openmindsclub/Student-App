@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Personne = require ('./Personne');
 const Groupe = require ('./Groupe');
+const Task = require('./Task');
 
 const etudiantSchema = new mongoose.Schema({
 
@@ -9,13 +10,17 @@ const etudiantSchema = new mongoose.Schema({
         required : true
     },
     personne : {
-        type : new Personne(),
+        type : Personne.schema,
         required : true
     },
     groupe : {
-        type : new Groupe(),
+        type : Groupe.schema,
         required : true
-    }
+    },
+    tasks : [{
+        type : Task.schema,
+        required : true
+    }],
 } , {timestamps : true })
 
 const Etudiant = mongoose.model('Etudiant' , etudiantSchema);

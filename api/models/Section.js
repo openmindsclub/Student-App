@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
-const mongoose = require('./Specialite');
+const Specialite = require('./Specialite');
 
 const sctSchema = new mongoose.Schema({
-    annee_etude : {
+    annee: {
         type : Date,
         required : true
     },
-    num_section : {
-        type : int,
+    num : {
+        type : Number,
         required : true
     },
     specialite : {
-        type : new Specialite(),
+        type : Specialite.schema,
         required : true
     }
 } , {timestamps : true })

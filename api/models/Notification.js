@@ -11,11 +11,11 @@ const notiSchema = new mongoose.Schema({
         required : true
     },
     date : {
-        type : StriDng,
+        type : String,
         required : true
     },
     personne : {
-        type : new Personne(),
+        type : Personne.schema,
         required : true
     }
 } , {timestamps : true })

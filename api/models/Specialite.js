@@ -7,7 +7,7 @@ const spcSchema = new mongoose.Schema({
         required : true
     },
     faculte : {
-        type : new Faculte(),
+        type : Faculte.schema,
         required : true
     }
 } , {timestamps : true })

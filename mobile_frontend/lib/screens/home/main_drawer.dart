@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
 
 class MainDrawer extends StatelessWidget {
   @override

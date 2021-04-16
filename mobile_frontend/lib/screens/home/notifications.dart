@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/main_drawer.dart';
-import 'package:mobile_frontend/dart_src/notif.dart';
+import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/models/notif.dart';
 
 class NotificationsWidget extends StatefulWidget {
   @override

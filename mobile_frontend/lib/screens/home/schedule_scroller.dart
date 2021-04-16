@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/dart_src/tasks.dart';
+import 'package:mobile_frontend/models/tasks.dart';
 
 
 class ScheduleScroller extends StatefulWidget {

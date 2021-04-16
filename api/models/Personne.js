@@ -5,7 +5,7 @@ const personneSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    prénom : {
+    prenom : {
         type : String,
         required : true
     },
