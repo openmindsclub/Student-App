@@ -20,13 +20,22 @@ class User {
   // user constructor
   User(this.id, this.email);
 
-  // checking the register infos in the first register screen and transfer them from a screen to another
-  User.registerInfos(this.email, this.password, this.lastName, this.firstName);
+  void makeSessionActive(){
+    bool activeSession = true;
+    // update active session in the database
+  }
 
-  void store_token() async{
+  void makeSessionInactive(){
+    bool activeSession = false;
+    // update active session in the database
+  }
+
+  void storeToken() async{
     final storage = new FlutterSecureStorage();
     await storage.write(key: 'jwt', value: id);
   }
+
+
 
   static Future login(String email, String password) async {
       // check email format,
@@ -42,6 +51,7 @@ class User {
           // create a user
           User user = User(response.data["userId"], email);
           print(response.data);
+          user.makeSessionActive();
           // load user data from the server
           // store the token
           // return the user
@@ -95,4 +105,8 @@ class User {
     RegExp idExp = new RegExp(r"^[0-9]{12}$");
     return idExp.hasMatch(id);
   }
+
+  // checking the register infos in the first register screen and transfer them from a screen to another
+  User.registerInfos(this.email, this.password, this.lastName, this.firstName);
+
 }

@@ -161,6 +161,7 @@ class _LoginState extends State<Login> {
                                           print(user);
                                           if(user == 404 || user == 401){
                                             // 404 means the email doesn't exist and 401 the passwords don't match, I'll change the return later in fonction of what we need
+                                            // on affiche une alert box pour dire que l'utilisateur ne peux pas se connecter
                                             print("I'm asking you to register or login");
                                           } else {
                                             print("user authentified");
