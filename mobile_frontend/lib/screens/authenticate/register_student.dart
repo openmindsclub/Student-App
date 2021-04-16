@@ -224,7 +224,15 @@ class _RegisterStudentState extends State<RegisterStudent> {
                       );
                       if (response){
                         print("user created");
+
                         // login
+                        var user = await User.login(widget.userInfos.email, widget.userInfos.password);
+                        // there is no 404 or 401 errors here because we know for sure te user is created with this email and password
+                        // but we'll add a verification later just in case
+
+                        Navigator.pushNamedAndRemoveUntil(context, "/dashboard", (route) => false);
+
+
                       } else {
                         // afficher message d'erreur
                       }
