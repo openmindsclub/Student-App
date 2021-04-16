@@ -2,6 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dio/dio.dart';
 
 import 'package:mobile_frontend/services/rest_api.dart';
+import 'package:mobile_frontend/services/dataBase.dart';
 
 import 'enumeration.dart';
 
@@ -21,12 +22,13 @@ class User {
   User(this.id, this.email);
 
   void makeSessionActive(){
-    bool activeSession = true;
+    activeSession = true;
     // update active session in the database
   }
 
   void makeSessionInactive(){
-    bool activeSession = false;
+    // we call this function after the user disconnect or after the tokken is
+    activeSession = false;
     // update active session in the database
   }
 
@@ -35,7 +37,33 @@ class User {
     await storage.write(key: id, value: token);
   }
 
+  void storeUserLocalDB() async {
+    var db = await DataBase.getDB();
+    await db.execute("DROP TABLE UserPrincipal;");
+    await db.execute("CREATE TABLE UserPrincipal (id TEXT PRIMARY KEY, email TEXT UNIQUE, sessionActive INTEGER);");
+    int value = await db.insert('USERPRINCIPAL', {
+      'id': id,
+      'email': email,
+      'sessionActive': activeSession ? 1 : 0
+    });
+    await DataBase.closeDB(db);
+  }
 
+  static Future<User> getUser() async {
+    var db = await DataBase.getDB();
+    List<Map> info = await db.query("USERPRINCIPAL",
+        columns: ['id', 'email', 'sessionActive']);
+    // the table is supposed to have one or 0 users so we take the first one
+
+    if (info.isEmpty){
+      return null;
+    }
+
+    User user = User(info[0]["id"], info[0]["email"]);
+    user.activeSession = info[0]["sessionActive"] == 1;
+    await DataBase.closeDB(db);
+    return user;
+  }
 
   static Future login(String email, String password) async {
       // check email format,
@@ -51,10 +79,15 @@ class User {
           // create a user
           User user = User(response.data["userId"], email);
           print(response.data);
-          user.makeSessionActive();
-          // load user data from the server
-          // store the token
+
           user.storeToken(response.data["token"]);
+          user.makeSessionActive();
+
+          // load user data from the server (we'll do this part later)
+
+          // store the user in the local data base as a the principal user
+          user.storeUserLocalDB();
+
           // return the user
           return user;
         }
