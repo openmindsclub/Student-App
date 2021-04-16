@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dio/dio.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'package:mobile_frontend/services/rest_api.dart';
 import 'package:mobile_frontend/services/dataBase.dart';
@@ -39,7 +40,7 @@ class User {
 
   void storeUserLocalDB() async {
     var db = await DataBase.getDB();
-    await db.execute("DROP TABLE UserPrincipal;");
+    await db.execute("DROP TABLE IF EXISTS UserPrincipal;");
     await db.execute("CREATE TABLE UserPrincipal (id TEXT PRIMARY KEY, email TEXT UNIQUE, sessionActive INTEGER);");
     int value = await db.insert('USERPRINCIPAL', {
       'id': id,
@@ -51,11 +52,18 @@ class User {
 
   static Future<User> getUser() async {
     // this function is a test for now it will be rewritten later when the database schema and models are finished,
-
+    List<Map> info;
     var db = await DataBase.getDB();
-    List<Map> info = await db.query("USERPRINCIPAL",
-        columns: ['id', 'email', 'sessionActive']);
-    // the table is supposed to have one or 0 users so we take the first one
+
+    try{
+      info = await db.query("USERPRINCIPAL",
+          columns: ['id', 'email', 'sessionActive']);
+      // the table is supposed to have one or 0 users so we take the first one
+    } on DatabaseException catch (e) {
+      print(e);
+      return null;
+    }
+
 
     if (info.isEmpty){
       return null;
