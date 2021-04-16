@@ -30,9 +30,9 @@ class User {
     // update active session in the database
   }
 
-  void storeToken() async{
+  void storeToken(String token) async{
     final storage = new FlutterSecureStorage();
-    await storage.write(key: 'jwt', value: id);
+    await storage.write(key: id, value: token);
   }
 
 
@@ -54,6 +54,7 @@ class User {
           user.makeSessionActive();
           // load user data from the server
           // store the token
+          user.storeToken(response.data["token"]);
           // return the user
           return user;
         }
