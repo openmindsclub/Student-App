@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 
-class Calendar extends StatefulWidget {
+class Actuality extends StatefulWidget {
   @override
-  _CalendarState createState() => _CalendarState();
+  _ActualityState createState() => _ActualityState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _ActualityState extends State<Actuality> {
   @override
   Widget build(BuildContext context) {
     return Container();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mobile_frontend/screens/home/dashboard.dart';
 import 'package:mobile_frontend/screens/home/profile.dart';
-import 'package:mobile_frontend/screens/home/actualite.dart';
+import 'package:mobile_frontend/screens/home/actuality.dart';
 import 'package:mobile_frontend/screens/home/calendar.dart';
 import 'package:mobile_frontend/screens/home/time_table.dart';
 import 'package:mobile_frontend/screens/home/settings.dart';
@@ -35,7 +35,7 @@ class StudentApp extends StatelessWidget {
         '/calendar': (context) => Calendar(),
         '/notifications': (context) => NotificationsWidget(),
         '/emploiDuTemps': (context) => EmploiDuT(),
-        '/actualite': (context) => Actualite(),
+        '/actualite': (context) => Actuality(),
         '/settings': (context) => Settings(),
       },
       home: Wrapper(),

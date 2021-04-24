@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 
 class EmploiDuT extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class _EmploiDuTState extends State<EmploiDuT> {
         backgroundColor: Color(0xff43B485),
         elevation: 0.0,
       ),
-      drawer: MainDrawer(),
+      drawer: NavigationDrawer(),
       body: Container(
         color: Color(0xffF5F8F6),
         child: Column(

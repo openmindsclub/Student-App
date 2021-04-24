@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/screens/home/category_scroller.dart';
 import 'package:mobile_frontend/screens/home/schedule_scroller.dart';
 
@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Color(0xff43B485),
         elevation: 0.0,
       ),
-      drawer: MainDrawer(),
+      drawer: NavigationDrawer(),
       body: Column(
         //crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

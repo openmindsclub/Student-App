@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/screens/home/main_drawer.dart';
+import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Home page'),
       ),
-      drawer: MainDrawer(),
+      drawer: NavigationDrawer(),
     );
   }
 }
