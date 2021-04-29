@@ -34,7 +34,7 @@ class StudentApp extends StatelessWidget {
         '/todoList': (context) => TodoList(),
         '/calendar': (context) => Calendar(),
         '/notifications': (context) => NotificationsWidget(),
-        '/emploiDuTemps': (context) => EmploiDuT(),
+        '/emploiDuTemps': (context) => TimeTable(),
         '/actualite': (context) => Actuality(),
         '/settings': (context) => Settings(),
       },
