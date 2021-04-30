@@ -10,13 +10,4 @@ class Session{
   String timeLaps(){
     return timeStart + " - " + timeEnd;
   }
-
-  String sessionInfos(){
-    if (bySection){
-      return seanceType;
-    } else {
-      return "Groupe $group, $seanceType";
-    }
-
-  }
 }

@@ -17,13 +17,15 @@ class _TimeTableState extends State<TimeTable> {
   int semester = 1;
   String section = "A";
 
-  List <Session> sessions = [
-    new Session(0, null, "Algorithme", "Cours", "Amphi : G", true, "8:00", "9:30"),
-    new Session(0, 1, "Algorithme", "TP", "Salle : TP107", false, "9:40", "11:10"),
-    new Session(0, 3, "CRI", "TD", "Salle : 205", false, "9:40", "11:10"),
-    new Session(0, null, "CRI", "Cours", "Amphi : A", true, "11:20", "12:50"),
-    new Session(0, 1, "Algorithme", "TP", "Salle : TP108", false, "13:00", "14:30"),
-    new Session(0, 2, "CRI", "TD", "Salle : 135", false, "14:00", "14:30"),
+  List<List<Session>> allSessions = [
+    [new Session(0, null, "Algorithme", "Cours", "Amphi : G", true, "8:00", "9:30")],
+    [
+      new Session(0, 1, "Algorithme", "TP", "Salle : TP107", false, "9:40", "11:10"),
+      new Session(0, 3, "CRI", "TD", "Salle : 205", false, "9:40", "11:10")
+    ],
+    [new Session(0, null, "CRI", "Cours", "Amphi : A", true, "11:20", "12:50")],
+    [new Session(0, 1, "Algorithme", "TP", "Salle : TP108", false, "13:00", "14:30")],
+    [new Session(0, 2, "CRI", "TD", "Salle : 135", false, "14:00", "14:30")],
   ];
 
   @override
@@ -102,10 +104,17 @@ class _TimeTableState extends State<TimeTable> {
               ),
             ),
             Expanded(
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                children: sessions.map((quote) => Seance(quote)).toList(),
+                itemCount: allSessions.length,
+                itemBuilder: (context, index){
+                  if(allSessions[index].length == 1){
+                    return NormalSession(allSessions[index][0]);
+                  } else {
+                    return MultipleSession(allSessions[index]);
+                  }
+                }
               ),
             ),
           ],
@@ -135,8 +144,7 @@ class _TimeTableState extends State<TimeTable> {
     );
   }
 
-
-  Widget Seance(Session session){
+  Widget NormalSession(Session session){
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -151,11 +159,12 @@ class _TimeTableState extends State<TimeTable> {
           color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
                       session.timeLaps(),
@@ -165,23 +174,24 @@ class _TimeTableState extends State<TimeTable> {
                       ),
                     ),
                     Text(
-                      session.sessionInfos(),
+                      session.module,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                        color: Color(0xff5A6779),
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ]
                 ),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Text(
-                      session.module,
+                      session.seanceType,
                       style: TextStyle(
-                        color: Color(0xff5A6779),
-                        fontSize: 17,
+                        color: Colors.black,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -193,6 +203,106 @@ class _TimeTableState extends State<TimeTable> {
                       ),
                     ),
                   ]
+                ),
+              ],
+            ),
+          )
+      ),
+    );
+  }
+
+  Widget MultipleSession(List<Session> sessions){
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          new BoxShadow(
+            color: Colors.grey[200],
+            blurRadius: 2.0,
+          ),
+        ],
+      ),
+      child: Card(
+          margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 10.0, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left:8.0, bottom: 8),
+                  child: Text(
+                    sessions[0].timeLaps(),
+                    style: TextStyle(
+                      color: Color(0xff707070),
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+                ListView(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: sessions.map((quote) => SubSession(quote)).toList(),
+                ),
+              ],
+            ),
+          )
+      ),
+    );
+  }
+
+  Widget SubSession(Session session){
+    return Container(
+
+      child: Card(
+          color: Color(0xff43B485),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        "Groupe " + session.group.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        session.module,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ]
+                ),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        session.seanceType,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        session.classroom,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ]
                 ),
               ],
             ),
