@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
+
 import 'package:table_calendar/table_calendar.dart';
+
+import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
+import 'package:mobile_frontend/shared/app_bar.dart';
 
 class Calendar extends StatefulWidget {
   @override
@@ -13,18 +16,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Calendar',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        backgroundColor: Color(0xff43B485),
-        elevation: 0.0,
-      ),
+      appBar: SharedAppBar(pageTitle:'Calendar'),
       drawer: NavigationDrawer(),
       body: TableCalendar(
         calendarController: _controller,

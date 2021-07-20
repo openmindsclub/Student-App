@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/screens/home/category_scroller.dart';
 import 'package:mobile_frontend/screens/home/schedule_scroller.dart';
+import 'package:mobile_frontend/shared/app_bar.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -12,18 +13,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Dashboard',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        backgroundColor: Color(0xff43B485),
-        elevation: 0.0,
-      ),
+      appBar: SharedAppBar(pageTitle:'Dashboard'),
       drawer: NavigationDrawer(),
       body: Column(
         //crossAxisAlignment: CrossAxisAlignment.start,

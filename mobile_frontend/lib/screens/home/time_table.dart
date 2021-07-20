@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/models/session.dart';
+import 'package:mobile_frontend/shared/app_bar.dart';
 
 class TimeTable extends StatefulWidget {
 
@@ -31,18 +32,7 @@ class _TimeTableState extends State<TimeTable> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Emploi Du Temps',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        backgroundColor: Color(0xff43B485),
-        elevation: 0.0,
-      ),
+      appBar: SharedAppBar(pageTitle:'Emploi Du Temps'),
       drawer: NavigationDrawer(),
       body: Container(
         color: Color(0xffF5F8F6),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'package:mobile_frontend/shared/constants.dart';
+
 class SharedAppBar extends StatefulWidget implements PreferredSizeWidget{
   @override
 
-  String PageTitle;
+  String pageTitle;
 
-  SharedAppBar({Key key, this.PageTitle}) : super(key: key);
+  SharedAppBar({Key key, this.pageTitle}) : super(key: key);
 
   _SharedAppBarState createState() => _SharedAppBarState();
 
@@ -19,14 +21,14 @@ class _SharedAppBarState extends State<SharedAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        widget.PageTitle,
+        widget.pageTitle,
         style: TextStyle(
           color: Colors.white,
           fontSize: 25,
           fontWeight: FontWeight.normal,
         ),
       ),
-      backgroundColor: Color(0xff43B485),
+      backgroundColor: mainAppColor1,
       elevation: 0.0,
     );
   }

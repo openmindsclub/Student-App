@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/models/notif.dart';
+import 'package:mobile_frontend/shared/app_bar.dart';
 
 class NotificationsWidget extends StatefulWidget {
   @override
@@ -107,18 +109,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Notifications',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        backgroundColor: Color(0xff43B485),
-        elevation: 0.0,
-      ),
+      appBar: SharedAppBar(pageTitle:'Notifications'),
       drawer: NavigationDrawer(),
       body: ListView(
         scrollDirection: Axis.vertical,
