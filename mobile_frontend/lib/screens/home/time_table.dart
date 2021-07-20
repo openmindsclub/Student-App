@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/models/session.dart';
 import 'package:mobile_frontend/shared/app_bar.dart';
+import 'package:mobile_frontend/shared/constants.dart';
 
 class TimeTable extends StatefulWidget {
 
@@ -35,7 +36,7 @@ class _TimeTableState extends State<TimeTable> {
       appBar: SharedAppBar(pageTitle:'Emploi Du Temps'),
       drawer: NavigationDrawer(),
       body: Container(
-        color: Color(0xffF5F8F6),
+        color: backgroundTimeTableColor,
         child: Column(
           children: <Widget>[
             Container(
@@ -112,7 +113,7 @@ class _TimeTableState extends State<TimeTable> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: Color(0xffF5F8F6),
+          color: backgroundTimeTableColor,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
             child: Row(
@@ -159,14 +160,14 @@ class _TimeTableState extends State<TimeTable> {
                     Text(
                       session.timeLaps(),
                       style: TextStyle(
-                        color: Color(0xff7D7A78),
+                        color: textColor1,
                         fontSize: 12,
                       ),
                     ),
                     Text(
                       session.module,
                       style: TextStyle(
-                        color: Color(0xff5A6779),
+                        color: textColor2,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -188,7 +189,7 @@ class _TimeTableState extends State<TimeTable> {
                     Text(
                       session.classroom,
                       style: TextStyle(
-                        color: Color(0xff7D7A78),
+                        color: textColor1,
                         fontSize: 13,
                       ),
                     ),
@@ -225,7 +226,7 @@ class _TimeTableState extends State<TimeTable> {
                   child: Text(
                     sessions[0].timeLaps(),
                     style: TextStyle(
-                      color: Color(0xff707070),
+                      color: textColor3,
                       fontSize: 12,
                     ),
                   ),
@@ -246,7 +247,7 @@ class _TimeTableState extends State<TimeTable> {
     return Container(
 
       child: Card(
-          color: Color(0xff43B485),
+          color: mainAppColor1,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10),
             child: Row(
@@ -309,7 +310,7 @@ class _TimeTableState extends State<TimeTable> {
           setState(() {
             initializeLists();
             textColor[weekIndex] = Colors.white;
-            weekDayColor[weekIndex] = Color(0xff43B485);
+            weekDayColor[weekIndex] = mainAppColor1;
           });
           // load the time table for that specific day from the time table model
           // build the list view of the time table

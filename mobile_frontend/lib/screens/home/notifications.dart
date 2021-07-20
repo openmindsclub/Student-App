@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/models/notif.dart';
 import 'package:mobile_frontend/shared/app_bar.dart';
+import 'package:mobile_frontend/shared/constants.dart';
 
 class NotificationsWidget extends StatefulWidget {
   @override
@@ -57,7 +58,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
               margin: EdgeInsets.only(right:12.0),
               height: 80,
               width: 5,
-              color: Color(0xff43B485),
+              color: mainAppColor1,
             ),
             Expanded(
               child: Column(
@@ -88,14 +89,14 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                     notification.date_string(),
                     style: TextStyle(
                       fontSize: 12.0,
-                      color: Color(0xff7D7A78),
+                      color: textColor1,
                     ),
                   ),
                   Text(
                     notification.content,
                     style: TextStyle(
                       fontSize: 12.0,
-                      color: Color(0xff7D7A78),
+                      color: textColor1,
                     ),
                   ),
                 ],

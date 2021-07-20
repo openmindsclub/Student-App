@@ -5,6 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/shared/app_bar.dart';
+import 'package:mobile_frontend/shared/constants.dart';
 
 class Calendar extends StatefulWidget {
   @override
@@ -22,15 +23,15 @@ class _CalendarState extends State<Calendar> {
         calendarController: _controller,
         calendarStyle: CalendarStyle(
           weekendStyle: TextStyle(color: Colors.black),
-          todayColor: Color(0xff43B485),
-          selectedColor: Color(0xff007E53),
+          todayColor: mainAppColor1,
+          selectedColor: calendarSelectedDayColor,
           todayStyle: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.white),
         ),
         headerStyle: HeaderStyle(
-          leftChevronIcon: Icon(Icons.arrow_back_ios, color: Color(0xff43B485)),
-          rightChevronIcon: Icon(Icons.arrow_forward_ios, color: Color(0xff43B485)),
-          titleTextStyle: TextStyle(color: Color(0xff43B485), fontSize: 20),
+          leftChevronIcon: Icon(Icons.arrow_back_ios, color: mainAppColor1),
+          rightChevronIcon: Icon(Icons.arrow_forward_ios, color: mainAppColor1),
+          titleTextStyle: TextStyle(color: mainAppColor1, fontSize: 20),
           formatButtonVisible: false,
         ),
         startingDayOfWeek: StartingDayOfWeek.sunday,

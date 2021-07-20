@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:mobile_frontend/shared/constants.dart';
+
 class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class NavigationDrawer extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(20),
-              color: Color(0xff43B485),
+              color: mainAppColor1,
               child: Column(
                 children: <Widget>[
                   SizedBox(height: 20),
@@ -37,7 +39,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.person,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Profile',
@@ -53,7 +55,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.list,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Todo list',
@@ -69,7 +71,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.calendar_today,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Calendar',
@@ -85,7 +87,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.dashboard,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Dashboard',
@@ -101,7 +103,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.notification_important,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Notifications',
@@ -117,7 +119,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.ballot,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Emploi du temps',
@@ -133,7 +135,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.wysiwyg,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Actualité',
@@ -150,7 +152,7 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.settings_rounded,
-                color: Color(0xff26BC50),
+                color: navigationDrawerColor,
               ),
               title: Text(
                 'Settings',

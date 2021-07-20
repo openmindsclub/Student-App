@@ -3,6 +3,7 @@ import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/screens/home/category_scroller.dart';
 import 'package:mobile_frontend/screens/home/schedule_scroller.dart';
 import 'package:mobile_frontend/shared/app_bar.dart';
+import 'package:mobile_frontend/shared/constants.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
             children: [
               Container(
                 padding: EdgeInsets.only(top: 5.0),
-                color: Color(0xff43B485),
+                color: mainAppColor1,
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -39,7 +40,7 @@ class _DashboardState extends State<Dashboard> {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0)),
-                  color: Color(0xff43B485),
+                  color: mainAppColor1,
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 5.0),
