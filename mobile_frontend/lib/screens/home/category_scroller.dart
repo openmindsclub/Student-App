@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/models/activity.dart';
+import 'package:mobile_frontend/shared/constants.dart';
 
 class CategoryScroller extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
                     backgroundColor:  Color(0xffDADFE1),
                     strokeWidth: 8.0,
                     valueColor: new AlwaysStoppedAnimation<Color>(
-                        Color(0xffFF4C67)),
+                        progressIndicatorColor),
                   ),
                   Center(child: buildProgress(singleActivity)),
                 ],
@@ -84,7 +85,7 @@ Widget buildProgress(singleActivity) {
   if (singleActivity.isDone()) {
     return Icon(
       Icons.done,
-      color: Color(0xffFF4C67),
+      color: progressIndicatorColor,
       size: 56,
     );
   } else {
@@ -92,7 +93,7 @@ Widget buildProgress(singleActivity) {
       '${(singleActivity.totalActivities)}',
       style: TextStyle(
         fontWeight: FontWeight.bold,
-        color: Color(0xffFF4C67),
+        color: progressIndicatorColor,
         fontSize: 30,
       ),
     );

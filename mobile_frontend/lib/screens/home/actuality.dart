@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 
-class TodoList extends StatefulWidget {
+class Actuality extends StatefulWidget {
   @override
-  _TodoListState createState() => _TodoListState();
+  _ActualityState createState() => _ActualityState();
 }
 
-class _TodoListState extends State<TodoList> {
+class _ActualityState extends State<Actuality> {
   @override
   Widget build(BuildContext context) {
     return Container();
