@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
-import 'package:mobile_frontend/models/session.dart';
+import 'package:mobile_frontend/models/time_schedule.dart';
 import 'package:mobile_frontend/shared/app_bar.dart';
 import 'package:mobile_frontend/shared/constants.dart';
 
