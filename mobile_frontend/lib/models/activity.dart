@@ -1,11 +1,7 @@
 class Activity{
-  String activity;
-  int totalActivities;
-  int done;
+  String type;
+  DateTime date;
+  String module;
 
-  Activity({this.activity, this.totalActivities, this.done});
-
-  bool isDone(){
-    return totalActivities == done;
-  }
+  Activity({this.type, this.date, this.module});
 }

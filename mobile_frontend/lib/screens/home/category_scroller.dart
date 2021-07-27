@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/models/activity.dart';
+import 'package:mobile_frontend/models/category.dart';
 import 'package:mobile_frontend/shared/constants.dart';
 
 class CategoryScroller extends StatefulWidget {
@@ -9,10 +10,10 @@ class CategoryScroller extends StatefulWidget {
 
 class _CategoryScrollerState extends State<CategoryScroller> {
 
-  List<Activity> activities = [
-    Activity(activity: 'Tasks', totalActivities: 7, done: 4),
-    Activity(activity: 'Notifications', totalActivities: 8, done: 8),
-    Activity(activity: 'Exams', totalActivities: 10, done: 9)
+  List<Category> categories = [
+    Category(category: 'Tasks', totalActivities: 7, done: 4),
+    Category(category: 'Notifications', totalActivities: 8, done: 8),
+    Category(category: 'Exams', totalActivities: 10, done: 9)
   ];
 
   Widget activityTemplate(singleActivity) {
@@ -73,7 +74,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
           fit: BoxFit.fill,
           alignment: Alignment.topCenter,
           child: Row(
-            children: activities.map((singleActivity) => activityTemplate(singleActivity)).toList(),
+            children: categories.map((singleActivity) => activityTemplate(singleActivity)).toList(),
           ),
         ),
       ),
