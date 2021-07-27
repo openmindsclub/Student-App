@@ -1,8 +1,10 @@
 
 import 'package:hive/hive.dart';
 
+part 'activity.g.dart';
+
 @HiveType(typeId : 2)
-class Activity{
+class Activity extends HiveObject{
   @HiveField(0)
   String type;
   @HiveField(1)

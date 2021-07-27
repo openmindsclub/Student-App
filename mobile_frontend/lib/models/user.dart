@@ -8,8 +8,10 @@ import 'package:mobile_frontend/services/dataBase.dart';
 
 import 'enumeration.dart';
 
+part 'user.g.dart';
+
 @HiveType(typeId : 1)
-class User {
+class User extends HiveObject{
   @HiveField(0)
   String id;
   @HiveField(1)
@@ -20,12 +22,12 @@ class User {
   String firstName;
   @HiveField(4)
   String studentID; // matricule
-
   @HiveField(5)
   bool activeSession = false;
 
-  // user constructor
-  User(this.id, this.email);
+  // user constructors
+  User(this.id, this.email, this.lastName,  this.firstName, this.studentID, this.activeSession);
+  User.minimalUser(this.id, this.email);
 
   void makeSessionActive(){
     activeSession = true;
@@ -74,7 +76,7 @@ class User {
       return null;
     }
 
-    User user = User(info[0]["id"], info[0]["email"]);
+    User user = User.minimalUser(info[0]["id"], info[0]["email"]);
     user.activeSession = info[0]["sessionActive"] == 1;
     await DataBase.closeDB(db);
     return user;
@@ -92,7 +94,7 @@ class User {
         if (response.statusCode == 200){
           // request worked perfectly
           // create a user
-          User user = User(response.data["userId"], email);
+          User user = User.minimalUser(response.data["userId"], email);
           print(response.data);
 
           user.storeToken(response.data["token"]);

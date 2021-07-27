@@ -1,8 +1,10 @@
 
 import 'package:hive/hive.dart';
 
+part 'tasks.g.dart';
+
 @HiveType(typeId : 3)
-class Task{
+class Task extends HiveObject{
   @HiveField(0)
   String title;
   @HiveField(1)

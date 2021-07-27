@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 
 class Login extends StatefulWidget {
   @override

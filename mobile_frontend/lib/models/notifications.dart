@@ -1,8 +1,10 @@
 
 import 'package:hive/hive.dart';
 
+part 'notifications.g.dart';
+
 @HiveType(typeId : 6)
-class Notification{
+class Notification extends HiveObject{
   @HiveField(0)
   String title;
   @HiveField(1)

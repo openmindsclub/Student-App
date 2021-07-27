@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 import 'package:mobile_frontend/screens/authenticate/registration_informations.dart';
 import 'package:mobile_frontend/shared/field_widgets.dart';
 

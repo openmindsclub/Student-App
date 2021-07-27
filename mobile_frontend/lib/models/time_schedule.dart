@@ -1,12 +1,14 @@
 
 import 'package:hive/hive.dart';
 
+part 'time_schedule.g.dart';
+
 class TimeTable{
 
 }
 
 @HiveType(typeId : 4)
-class Session{
+class Session extends HiveObject{
   @HiveField(0)
   String module;
   @HiveField(1)
@@ -24,7 +26,10 @@ class Session{
 
   int numSeanceDay;
 
-  Session(this.numSeanceDay, this.group, this.module, this.seanceType,
+  Session.withSecance(this.numSeanceDay, this.group, this.module, this.seanceType,
+      this.classroom, this.bySection, this.timeStart, this.timeEnd);
+
+  Session(this.group, this.module, this.seanceType,
       this.classroom, this.bySection, this.timeStart, this.timeEnd);
 
   String timeLaps(){
@@ -39,6 +44,9 @@ class ModifiedSession extends Session{
   @HiveField(8)
   String newTimeEnd;
 
-  ModifiedSession(this.newTimeStart, this.newTimeEnd, numSeanceDay, group, module, seanceType,
-      classroom, bySection, timeStart, timeEnd) : super(numSeanceDay, group, module, seanceType, classroom, bySection, timeStart, timeEnd);
+  ModifiedSession.withSecance(this.newTimeStart, this.newTimeEnd, numSeanceDay, group, module, seanceType,
+      classroom, bySection, timeStart, timeEnd) : super.withSecance(numSeanceDay, group, module, seanceType, classroom, bySection, timeStart, timeEnd);
+
+  ModifiedSession(this.newTimeStart, this.newTimeEnd, group, module, seanceType,
+      classroom, bySection, timeStart, timeEnd) : super(group, module, seanceType, classroom, bySection, timeStart, timeEnd);
 }

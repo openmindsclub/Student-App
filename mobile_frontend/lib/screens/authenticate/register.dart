@@ -5,7 +5,7 @@ import 'package:mobile_frontend/screens/authenticate/registration_informations.d
 
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 
 class Register extends StatefulWidget {
   @override

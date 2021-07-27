@@ -1,4 +1,4 @@
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 import 'package:mobile_frontend/screens/authenticate/login.dart';
 import 'package:mobile_frontend/screens/home/dashboard.dart';
 import 'package:flutter/material.dart';
