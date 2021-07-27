@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:mobile_frontend/screens/authenticate/register_student.dart';
+import 'package:mobile_frontend/screens/authenticate/registration_informations.dart';
 
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
@@ -229,7 +230,7 @@ class _RegisterState extends State<Register> {
                         print('this is not a password');
                         return;
                       }
-                      User userInfos = User.registerInfos(_emailAdress.currentState.value, _password.currentState.value, _lastName.currentState.value, _firstName.currentState.value);
+                      RegistrationInformation userInfos = RegistrationInformation.registerInfos(_emailAdress.currentState.value, _password.currentState.value, _lastName.currentState.value, _firstName.currentState.value);
                       print(userInfos.firstName + " " + userInfos.lastName + " " + userInfos.email + " " + userInfos.password);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterStudent(userInfos : userInfos)));
                     },

@@ -50,7 +50,7 @@ class _CategoryScrollerState extends State<CategoryScroller> {
               height: 15,
             ),
             Text(
-              singleActivity.activity,
+              singleActivity.category,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,

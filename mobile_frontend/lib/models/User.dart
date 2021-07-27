@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'package:mobile_frontend/services/rest_api.dart';
@@ -7,16 +8,20 @@ import 'package:mobile_frontend/services/dataBase.dart';
 
 import 'enumeration.dart';
 
+@HiveType(typeId : 1)
 class User {
-  String email, lastName, firstName;
+  @HiveField(0)
   String id;
-  String password;
-
+  @HiveField(1)
+  String email;
+  @HiveField(2)
+  String lastName;
+  @HiveField(3)
+  String firstName;
+  @HiveField(4)
   String studentID; // matricule
-  Faculty faculty;
-  StudyYear studyYear;
-  String speciality, section, group;
 
+  @HiveField(5)
   bool activeSession = false;
 
   // user constructor
@@ -149,8 +154,5 @@ class User {
     RegExp idExp = new RegExp(r"^[0-9]{12}$");
     return idExp.hasMatch(id);
   }
-
-  // checking the register infos in the first register screen and transfer them from a screen to another
-  User.registerInfos(this.email, this.password, this.lastName, this.firstName);
 
 }

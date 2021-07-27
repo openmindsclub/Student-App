@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/screens/authenticate/registration_informations.dart';
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
 class RegisterStudent extends StatefulWidget {
 
-  User userInfos;
+  RegistrationInformation userInfos;
 
   RegisterStudent({Key key, this.userInfos}) : super(key: key);
 
