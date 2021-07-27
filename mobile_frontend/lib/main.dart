@@ -13,10 +13,14 @@ import 'package:mobile_frontend/screens/authenticate/login.dart';
 import 'package:mobile_frontend/screens/authenticate/register.dart';
 
 import 'package:mobile_frontend/screens/wrapper.dart';
+import 'package:mobile_frontend/services/dataBase.dart';
 
 
 
-void main() => runApp(StudentApp());
+void main() async{
+  DataBase.initHiveDB();
+  runApp(StudentApp());
+}
 
 class StudentApp extends StatelessWidget {
   // This widget is the root of the application.
