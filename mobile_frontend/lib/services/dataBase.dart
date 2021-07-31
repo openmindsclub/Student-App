@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:mobile_frontend/models/notif.dart';
 import 'package:sqflite/sqflite.dart'; // sqflite related, just keeping it until we completely switch to hive
 import 'package:hive/hive.dart';
@@ -17,12 +19,7 @@ class DataBase{
     await db.close();
   }
 
-  static Future initHiveDB() async{
-    print("hey");
-    var appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
-    print(appDocumentDirectory);
+  static Future initHiveDB(Directory appDocumentDirectory) async{
     Hive.init(appDocumentDirectory.path);
-    print("hey");
-    Hive.registerAdapter(NotifAdapter());
   }
 }
