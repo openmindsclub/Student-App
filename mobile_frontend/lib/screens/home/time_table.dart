@@ -76,7 +76,7 @@ class _TimeTableState extends State<TimeTable> {
               decoration: BoxDecoration(
                 boxShadow: [
                   new BoxShadow(
-                    color: Colors.grey[350],
+                    color: Colors.grey[350]!,
                     blurRadius: 5.0,
                   ),
                 ],
@@ -140,7 +140,7 @@ class _TimeTableState extends State<TimeTable> {
       decoration: BoxDecoration(
         boxShadow: [
           new BoxShadow(
-            color: Colors.grey[200],
+            color: Colors.grey[200]!,
             blurRadius: 2.0,
           ),
         ],
@@ -165,7 +165,7 @@ class _TimeTableState extends State<TimeTable> {
                       ),
                     ),
                     Text(
-                      session.module,
+                      session.module!,
                       style: TextStyle(
                         color: textColor2,
                         fontSize: 16,
@@ -179,7 +179,7 @@ class _TimeTableState extends State<TimeTable> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Text(
-                      session.seanceType,
+                      session.seanceType!,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
@@ -187,7 +187,7 @@ class _TimeTableState extends State<TimeTable> {
                       ),
                     ),
                     Text(
-                      session.classroom,
+                      session.classroom!,
                       style: TextStyle(
                         color: textColor1,
                         fontSize: 13,
@@ -207,7 +207,7 @@ class _TimeTableState extends State<TimeTable> {
       decoration: BoxDecoration(
         boxShadow: [
           new BoxShadow(
-            color: Colors.grey[200],
+            color: Colors.grey[200]!,
             blurRadius: 2.0,
           ),
         ],
@@ -265,7 +265,7 @@ class _TimeTableState extends State<TimeTable> {
                         ),
                       ),
                       Text(
-                        session.module,
+                        session.module!,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -279,7 +279,7 @@ class _TimeTableState extends State<TimeTable> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
-                        session.seanceType,
+                        session.seanceType!,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -287,7 +287,7 @@ class _TimeTableState extends State<TimeTable> {
                         ),
                       ),
                       Text(
-                        session.classroom,
+                        session.classroom!,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 13,

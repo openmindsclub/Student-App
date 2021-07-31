@@ -10,21 +10,21 @@ class TimeTable{
 @HiveType(typeId : 4)
 class Session extends HiveObject{
   @HiveField(0)
-  String module;
+  String? module;
   @HiveField(1)
-  String seanceType;
+  String? seanceType;
   @HiveField(2)
-  String classroom;
+  String? classroom;
   @HiveField(3)
-  bool bySection;
+  bool? bySection;
   @HiveField(4)
-  String timeStart;
+  String? timeStart;
   @HiveField(5)
-  String timeEnd;
+  String? timeEnd;
   @HiveField(6)
-  int group;
+  int? group;
 
-  int numSeanceDay;
+  int? numSeanceDay;
 
   Session.withSecance(this.numSeanceDay, this.group, this.module, this.seanceType,
       this.classroom, this.bySection, this.timeStart, this.timeEnd);
@@ -33,16 +33,16 @@ class Session extends HiveObject{
       this.classroom, this.bySection, this.timeStart, this.timeEnd);
 
   String timeLaps(){
-    return timeStart + " - " + timeEnd;
+    return timeStart! + " - " + timeEnd!;
   }
 }
 
 @HiveType(typeId : 5)
 class ModifiedSession extends Session{
   @HiveField(7)
-  String newTimeStart;
+  String? newTimeStart;
   @HiveField(8)
-  String newTimeEnd;
+  String? newTimeEnd;
 
   ModifiedSession.withSecance(this.newTimeStart, this.newTimeEnd, numSeanceDay, group, module, seanceType,
       classroom, bySection, timeStart, timeEnd) : super.withSecance(numSeanceDay, group, module, seanceType, classroom, bySection, timeStart, timeEnd);

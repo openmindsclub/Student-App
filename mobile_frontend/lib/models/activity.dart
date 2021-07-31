@@ -6,13 +6,13 @@ part 'activity.g.dart';
 @HiveType(typeId : 2)
 class Activity extends HiveObject{
   @HiveField(0)
-  String type;
+  String? type;
   @HiveField(1)
-  DateTime date;
+  DateTime? date;
   @HiveField(2)
-  String time;
+  String? time;
   @HiveField(3)
-  String module;
+  String? module;
 
   Activity({this.type, this.date, this.time, this.module});
 }

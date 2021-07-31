@@ -17,9 +17,9 @@ class TaskAdapter extends TypeAdapter<Task> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Task(
-      title: fields[0] as String,
-      description: fields[1] as String,
-      date: fields[2] as DateTime,
+      title: fields[0] as String?,
+      description: fields[1] as String?,
+      date: fields[2] as DateTime?,
     );
   }
 

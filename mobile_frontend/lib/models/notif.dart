@@ -6,16 +6,16 @@ part 'notif.g.dart';
 @HiveType(typeId : 6)
 class Notif extends HiveObject{
   @HiveField(0)
-  String title;
+  String? title;
   @HiveField(1)
-  String content;
+  String? content;
   @HiveField(2)
-  DateTime date_notification;
+  DateTime? date_notification;
 
   Notif({this.title, this.content, this.date_notification});
 
   String date_string(){
-    return "${date_notification.year.toString()}-${date_notification.month.toString().padLeft(2,'0')}-${date_notification.day.toString().padLeft(2,'0')} ${date_notification.hour.toString()}-${date_notification.minute.toString()}";
+    return "${date_notification!.year.toString()}-${date_notification!.month.toString().padLeft(2,'0')}-${date_notification!.day.toString().padLeft(2,'0')} ${date_notification!.hour.toString()}-${date_notification!.minute.toString()}";
   }
 
   // add a notification to the local database
@@ -31,7 +31,7 @@ class Notif extends HiveObject{
   static List<Notif> getNotifications(){
     // treat the case where the box is unopened
     var box = Hive.box("notifications");
-    return box.values;
+    return box.values as List<Notif>;
   }
 
   static void openHiveBox() async {

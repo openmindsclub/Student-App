@@ -17,10 +17,10 @@ class ActivityAdapter extends TypeAdapter<Activity> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Activity(
-      type: fields[0] as String,
-      date: fields[1] as DateTime,
-      time: fields[2] as String,
-      module: fields[3] as String,
+      type: fields[0] as String?,
+      date: fields[1] as DateTime?,
+      time: fields[2] as String?,
+      module: fields[3] as String?,
     );
   }
 

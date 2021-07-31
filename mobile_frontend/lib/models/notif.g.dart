@@ -17,9 +17,9 @@ class NotifAdapter extends TypeAdapter<Notif> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Notif(
-      title: fields[0] as String,
-      content: fields[1] as String,
-      date_notification: fields[2] as DateTime,
+      title: fields[0] as String?,
+      content: fields[1] as String?,
+      date_notification: fields[2] as DateTime?,
     );
   }
 

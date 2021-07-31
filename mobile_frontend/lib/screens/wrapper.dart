@@ -10,7 +10,7 @@ class Wrapper extends StatefulWidget {
 
 class _WrapperState extends State<Wrapper> {
 
-  User user;
+  User? user;
   bool getUserData = false;
 
   @override
@@ -34,7 +34,7 @@ class _WrapperState extends State<Wrapper> {
     // uplaod the user from the database
 
     // return either the Home or Authenticate widget
-    if (user == null || !user.activeSession){
+    if (user == null || !user!.activeSession!){
       return Login();
     } else {
       return Dashboard();

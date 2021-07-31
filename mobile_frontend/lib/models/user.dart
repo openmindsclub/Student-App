@@ -13,17 +13,17 @@ part 'user.g.dart';
 @HiveType(typeId : 1)
 class User extends HiveObject{
   @HiveField(0)
-  String id;
+  String? id;
   @HiveField(1)
-  String email;
+  String? email;
   @HiveField(2)
-  String lastName;
+  String? lastName;
   @HiveField(3)
-  String firstName;
+  String? firstName;
   @HiveField(4)
-  String studentID; // matricule
+  String? studentID; // matricule
   @HiveField(5)
-  bool activeSession = false;
+  bool? activeSession = false;
 
   // user constructors
   User(this.id, this.email, this.lastName,  this.firstName, this.studentID, this.activeSession);
@@ -40,26 +40,26 @@ class User extends HiveObject{
     // update active session in the database
   }
 
-  void storeToken(String token) async{
+  void storeToken(String? token) async{
     final storage = new FlutterSecureStorage();
-    await storage.write(key: id, value: token);
+    await storage.write(key: id!, value: token);
   }
 
   void storeUserLocalDB() async {
     var db = await DataBase.getDB();
     await db.execute("DROP TABLE IF EXISTS UserPrincipal;");
     await db.execute("CREATE TABLE UserPrincipal (id TEXT PRIMARY KEY, email TEXT UNIQUE, sessionActive INTEGER);");
-    int value = await db.insert('USERPRINCIPAL', {
+    int? value = await db.insert('USERPRINCIPAL', {
       'id': id,
       'email': email,
-      'sessionActive': activeSession ? 1 : 0
+      'sessionActive': activeSession! ? 1 : 0
     });
     await DataBase.closeDB(db);
   }
 
-  static Future<User> getUser() async {
+  static Future<User?> getUser() async {
     // this function is a test for now it will be rewritten later when the database schema and models are finished,
-    List<Map> info;
+    List<Map>? info;
     var db = await DataBase.getDB();
 
     try{
@@ -72,7 +72,7 @@ class User extends HiveObject{
     }
 
 
-    if (info.isEmpty){
+    if (info!.isEmpty){
       return null;
     }
 
@@ -109,14 +109,14 @@ class User extends HiveObject{
           return user;
         }
       } on DioError catch (e){
-        if(e.response.statusCode == 404){
-          print(e.response.statusCode);
-        }else if (e.response.statusCode == 401){
-          print(e.response.statusCode);
+        if(e.response!.statusCode == 404){
+          print(e.response!.statusCode);
+        }else if (e.response!.statusCode == 401){
+          print(e.response!.statusCode);
         }
         // we're returning 404 or 401, 404 means the email doesn't exist and 401 the passwords don't match
         // we'll change that later if needed
-        return e.response.statusCode;
+        return e.response!.statusCode;
       }
   }
 

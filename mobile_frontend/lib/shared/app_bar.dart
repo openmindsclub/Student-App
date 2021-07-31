@@ -5,9 +5,9 @@ import 'package:mobile_frontend/shared/constants.dart';
 class SharedAppBar extends StatefulWidget implements PreferredSizeWidget{
   @override
 
-  String pageTitle;
+  String? pageTitle;
 
-  SharedAppBar({Key key, this.pageTitle}) : super(key: key);
+  SharedAppBar({Key? key, this.pageTitle}) : super(key: key);
 
   _SharedAppBarState createState() => _SharedAppBarState();
 
@@ -21,7 +21,7 @@ class _SharedAppBarState extends State<SharedAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        widget.pageTitle,
+        widget.pageTitle!,
         style: TextStyle(
           color: Colors.white,
           fontSize: 25,

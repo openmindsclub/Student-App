@@ -23,7 +23,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
   }
 
   void getData() async{
-    await Notif.openHiveBox();
+    Notif.openHiveBox();
     print("hello there");
     Notif.fillHiveDB();
     print("hello there");

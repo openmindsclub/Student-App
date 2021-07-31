@@ -41,7 +41,7 @@ class _ScheduleScrollerState extends State<ScheduleScroller> {
       decoration: BoxDecoration(
         boxShadow: [
           new BoxShadow(
-            color: Colors.grey[200],
+            color: Colors.grey[200]!,
             blurRadius: 2.0,
           ),
         ],

@@ -211,9 +211,9 @@ class _RegisterState extends State<Register> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      bool myemail = User.checkEmail(_emailAdress.currentState.value);
-                      bool myfirstname = User.checkName(_firstName.currentState.value);
-                      bool mylastname = User.checkName(_lastName.currentState.value);
+                      bool myemail = User.checkEmail(_emailAdress.currentState!.value!);
+                      bool myfirstname = User.checkName(_firstName.currentState!.value!);
+                      bool mylastname = User.checkName(_lastName.currentState!.value!);
                       if (!myemail){
                         print('this is not an email');
                         return;
@@ -226,12 +226,12 @@ class _RegisterState extends State<Register> {
                         print('this is not an name');
                         return;
                       }
-                      if (_password.currentState.value.isEmpty){
+                      if (_password.currentState!.value!.isEmpty){
                         print('this is not a password');
                         return;
                       }
-                      RegistrationInformation userInfos = RegistrationInformation.registerInfos(_emailAdress.currentState.value, _password.currentState.value, _lastName.currentState.value, _firstName.currentState.value);
-                      print(userInfos.firstName + " " + userInfos.lastName + " " + userInfos.email + " " + userInfos.password);
+                      RegistrationInformation userInfos = RegistrationInformation.registerInfos(_emailAdress.currentState!.value, _password.currentState!.value, _lastName.currentState!.value, _firstName.currentState!.value);
+                      print(userInfos.firstName! + " " + userInfos.lastName! + " " + userInfos.email! + " " + userInfos.password!);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterStudent(userInfos : userInfos)));
                     },
                     style: TextButton.styleFrom(

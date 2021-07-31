@@ -17,13 +17,13 @@ class SessionAdapter extends TypeAdapter<Session> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Session(
-      fields[6] as int,
-      fields[0] as String,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as bool,
-      fields[4] as String,
-      fields[5] as String,
+      fields[6] as int?,
+      fields[0] as String?,
+      fields[1] as String?,
+      fields[2] as String?,
+      fields[3] as bool?,
+      fields[4] as String?,
+      fields[5] as String?,
     );
   }
 
@@ -69,8 +69,8 @@ class ModifiedSessionAdapter extends TypeAdapter<ModifiedSession> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ModifiedSession(
-      fields[7] as String,
-      fields[8] as String,
+      fields[7] as String?,
+      fields[8] as String?,
       fields[6] as dynamic,
       fields[0] as dynamic,
       fields[1] as dynamic,
