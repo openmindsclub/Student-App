@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'notifications.dart';
+part of 'notif.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NotificationAdapter extends TypeAdapter<Notification> {
+class NotifAdapter extends TypeAdapter<Notif> {
   @override
   final int typeId = 6;
 
   @override
-  Notification read(BinaryReader reader) {
+  Notif read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Notification(
+    return Notif(
       title: fields[0] as String,
       content: fields[1] as String,
       date_notification: fields[2] as DateTime,
@@ -24,7 +24,7 @@ class NotificationAdapter extends TypeAdapter<Notification> {
   }
 
   @override
-  void write(BinaryWriter writer, Notification obj) {
+  void write(BinaryWriter writer, Notif obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,7 +41,7 @@ class NotificationAdapter extends TypeAdapter<Notification> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NotificationAdapter &&
+      other is NotifAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
