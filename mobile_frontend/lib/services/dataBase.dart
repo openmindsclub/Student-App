@@ -1,11 +1,17 @@
 import 'dart:io';
 
-import 'package:mobile_frontend/models/notif.dart';
 import 'package:sqflite/sqflite.dart'; // sqflite related, just keeping it until we completely switch to hive
 import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
+
+import 'package:mobile_frontend/models/activity.dart';
+import 'package:mobile_frontend/models/notif.dart';
+import 'package:mobile_frontend/models/tasks.dart';
+import 'package:mobile_frontend/models/time_schedule.dart';
+import 'package:mobile_frontend/models/user.dart';
 
 class DataBase{
+
+  static bool initialized = false;
 
   static Future getDB() async{
     // sqflite related, just keeping it until we completely switch to hive
@@ -20,6 +26,15 @@ class DataBase{
   }
 
   static Future initHiveDB(Directory appDocumentDirectory) async{
-    Hive.init(appDocumentDirectory.path);
+    if (!DataBase.initialized){
+      Hive.init(appDocumentDirectory.path);
+      Hive.registerAdapter(UserAdapter());
+      Hive.registerAdapter(ActivityAdapter());
+      Hive.registerAdapter(TaskAdapter());
+      Hive.registerAdapter(SessionAdapter());
+      Hive.registerAdapter(ModifiedSessionAdapter());
+      Hive.registerAdapter(NotifAdapter());
+      DataBase.initialized = true;
+    }
   }
 }

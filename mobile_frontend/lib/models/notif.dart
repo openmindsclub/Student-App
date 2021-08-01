@@ -31,10 +31,11 @@ class Notif extends HiveObject{
   static List<Notif> getNotifications(){
     // treat the case where the box is unopened
     var box = Hive.box("notifications");
-    return box.values as List<Notif>;
+    List<Notif> notifs = box.values.toList().cast<Notif>();
+    return notifs;
   }
 
-  static void openHiveBox() async {
+  static Future openHiveBox() async {
     await Hive.openBox("notifications");
   }
 

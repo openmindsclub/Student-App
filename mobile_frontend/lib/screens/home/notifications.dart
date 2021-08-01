@@ -13,22 +13,18 @@ class NotificationsWidget extends StatefulWidget {
 
 class _NotificationsWidgetState extends State<NotificationsWidget> {
 
-  List<Notif> notifs = [];
+  Future<List<Notif>>? _notificationFuture;
 
   @override
   void initState() {
-    print("hello there");
-    getData();
+    _notificationFuture = getData();
     super.initState();
   }
 
-  void getData() async{
-    Notif.openHiveBox();
-    print("hello there");
+  Future<List<Notif>>? getData() async{
+    await Notif.openHiveBox();
     Notif.fillHiveDB();
-    print("hello there");
-    notifs = Notif.getNotifications();
-    print(notifs);
+    return Notif.getNotifications();
   }
 
   Widget notifTemplate(notification) {
@@ -96,10 +92,20 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
     return Scaffold(
       appBar: SharedAppBar(pageTitle:'Notifications'),
       drawer: NavigationDrawer(),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: notifs.map((notification) => notifTemplate(notification)).toList(),
+      body: FutureBuilder(
+        future: _notificationFuture,
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasData){
+            List<Notif> notifs = snapshot.data;
+            return ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: notifs.map((notification) => notifTemplate(notification)).toList(),
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        }
       ),
     );
   }
