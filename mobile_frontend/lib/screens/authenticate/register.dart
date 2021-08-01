@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:mobile_frontend/screens/authenticate/register_student.dart';
+import 'package:mobile_frontend/screens/authenticate/registration_informations.dart';
 
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -21,7 +22,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
@@ -211,9 +211,9 @@ class _RegisterState extends State<Register> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      bool myemail = User.checkEmail(_emailAdress.currentState.value);
-                      bool myfirstname = User.checkName(_firstName.currentState.value);
-                      bool mylastname = User.checkName(_lastName.currentState.value);
+                      bool myemail = User.checkEmail(_emailAdress.currentState!.value!);
+                      bool myfirstname = User.checkName(_firstName.currentState!.value!);
+                      bool mylastname = User.checkName(_lastName.currentState!.value!);
                       if (!myemail){
                         print('this is not an email');
                         return;
@@ -226,12 +226,12 @@ class _RegisterState extends State<Register> {
                         print('this is not an name');
                         return;
                       }
-                      if (_password.currentState.value.isEmpty){
+                      if (_password.currentState!.value!.isEmpty){
                         print('this is not a password');
                         return;
                       }
-                      User userInfos = User.registerInfos(_emailAdress.currentState.value, _password.currentState.value, _lastName.currentState.value, _firstName.currentState.value);
-                      print(userInfos.firstName + " " + userInfos.lastName + " " + userInfos.email + " " + userInfos.password);
+                      RegistrationInformation userInfos = RegistrationInformation.registerInfos(_emailAdress.currentState!.value, _password.currentState!.value, _lastName.currentState!.value, _firstName.currentState!.value);
+                      print(userInfos.firstName! + " " + userInfos.lastName! + " " + userInfos.email! + " " + userInfos.password!);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterStudent(userInfos : userInfos)));
                     },
                     style: TextButton.styleFrom(

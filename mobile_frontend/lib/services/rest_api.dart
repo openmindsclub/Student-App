@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class Api{
-  Dio dio;
+  late Dio dio;
   String baseURL="http://10.0.2.2:3000/";
   int connectTimeout=5000, receiveTimeout=3000;
 

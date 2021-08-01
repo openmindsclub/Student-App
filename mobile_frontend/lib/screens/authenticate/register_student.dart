@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
+import 'package:mobile_frontend/screens/authenticate/registration_informations.dart';
 import 'package:mobile_frontend/shared/field_widgets.dart';
 
 class RegisterStudent extends StatefulWidget {
 
-  User userInfos;
+  RegistrationInformation? userInfos;
 
-  RegisterStudent({Key key, this.userInfos}) : super(key: key);
+  RegisterStudent({Key? key, this.userInfos}) : super(key: key);
 
   @override
   _RegisterStudentState createState() => _RegisterStudentState();
@@ -19,7 +22,6 @@ class _RegisterStudentState extends State<RegisterStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
@@ -214,19 +216,19 @@ class _RegisterStudentState extends State<RegisterStudent> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () async {
-                      bool response = await User.register(
-                          widget.userInfos.email,
-                          widget.userInfos.password,
-                          widget.userInfos.lastName,
-                          widget.userInfos.firstName,
-                          _studentID.currentState.value,
+                      bool response = await (User.register(
+                          widget.userInfos!.email,
+                          widget.userInfos!.password,
+                          widget.userInfos!.lastName,
+                          widget.userInfos!.firstName,
+                          _studentID.currentState!.value,
                           "departement informatique","3","isil","1","2"
-                      );
+                      ) as FutureOr<bool>);
                       if (response){
                         print("user created");
 
                         // login
-                        var user = await User.login(widget.userInfos.email, widget.userInfos.password);
+                        var user = await User.login(widget.userInfos!.email!, widget.userInfos!.password!);
                         // there is no 404 or 401 errors here because we know for sure te user is created with this email and password
                         // but we'll add a verification later just in case
 

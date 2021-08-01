@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_frontend/models/notif.dart';
 
 import 'package:mobile_frontend/screens/home/navigation_drawer.dart';
 import 'package:mobile_frontend/models/notif.dart';
@@ -12,40 +13,19 @@ class NotificationsWidget extends StatefulWidget {
 
 class _NotificationsWidgetState extends State<NotificationsWidget> {
 
-  List<Notif> notifs = [
-    Notif(
-        title: 'Acutualite',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Evenement',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Acutualite',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Evenement',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Acutualite',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Evenement',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Acutualite',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-    Notif(
-        title: 'Evenement',
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla convallis augue in gravida",
-        date_notification: DateTime.parse("1969-07-20 20:18:04Z")),
-  ];
+  Future<List<Notif>>? _notificationFuture;
+
+  @override
+  void initState() {
+    _notificationFuture = getData();
+    super.initState();
+  }
+
+  Future<List<Notif>>? getData() async{
+    await Notif.openHiveBox();
+    Notif.fillHiveDB();
+    return Notif.getNotifications();
+  }
 
   Widget notifTemplate(notification) {
     return Card(
@@ -112,10 +92,20 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
     return Scaffold(
       appBar: SharedAppBar(pageTitle:'Notifications'),
       drawer: NavigationDrawer(),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: notifs.map((notification) => notifTemplate(notification)).toList(),
+      body: FutureBuilder(
+        future: _notificationFuture,
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasData){
+            List<Notif> notifs = snapshot.data;
+            return ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: notifs.map((notification) => notifTemplate(notification)).toList(),
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        }
       ),
     );
   }

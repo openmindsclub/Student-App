@@ -13,21 +13,16 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
-  final CalendarController _controller = CalendarController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SharedAppBar(pageTitle:'Calendar'),
       drawer: NavigationDrawer(),
       body: TableCalendar(
-        calendarController: _controller,
-        calendarStyle: CalendarStyle(
-          weekendStyle: TextStyle(color: Colors.black),
-          todayColor: mainAppColor1,
-          selectedColor: calendarSelectedDayColor,
-          todayStyle: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.white),
-        ),
+        // major updates in the calendar librairy we use so we need to change a significant part of it.
+        firstDay: DateTime.utc(2021, 06, 01),
+        lastDay: DateTime.utc(2022, 10, 31),
+        focusedDay: DateTime.now(),
         headerStyle: HeaderStyle(
           leftChevronIcon: Icon(Icons.arrow_back_ios, color: mainAppColor1),
           rightChevronIcon: Icon(Icons.arrow_forward_ios, color: mainAppColor1),

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mobile_frontend/models/User.dart';
+import 'package:mobile_frontend/models/user.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -16,7 +16,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
@@ -147,17 +146,17 @@ class _LoginState extends State<Login> {
                                 Center(
                                     child: ElevatedButton(
                                       onPressed: () async {
-                                        print(_emailAdress.currentState.value);
-                                        if (_emailAdress.currentState.value.isEmpty) {
+                                        print(_emailAdress.currentState!.value);
+                                        if (_emailAdress.currentState!.value!.isEmpty) {
                                           print('Please enter an email');
                                         } else{
-                                          bool myemail = User.checkEmail(_emailAdress.currentState.value);
+                                          bool myemail = User.checkEmail(_emailAdress.currentState!.value!);
                                           if (myemail){
                                             print('good email');
                                           } else {
                                             print('this is not an email');
                                           }
-                                          var user = await User.login(_emailAdress.currentState.value, _password.currentState.value);
+                                          var user = await User.login(_emailAdress.currentState!.value!, _password.currentState!.value!);
                                           print(user);
                                           if(user == 404 || user == 401){
                                             // 404 means the email doesn't exist and 401 the passwords don't match, I'll change the return later in fonction of what we need

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DropDownList extends StatefulWidget {
-  List<String> comboList;
+  List<String>? comboList;
 
 
-  DropDownList({Key key, this.comboList}) : super(key: key);
+  DropDownList({Key? key, this.comboList}) : super(key: key);
 
   @override
   _DropDownList createState() => _DropDownList();
@@ -12,7 +12,7 @@ class DropDownList extends StatefulWidget {
 
 class _DropDownList extends State<DropDownList> {
 
-  String dropdownValue;
+  String? dropdownValue;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class _DropDownList extends State<DropDownList> {
           child: DropdownButtonHideUnderline (
             child: DropdownButton<String>(
               onTap: (){
-                FocusManager.instance.primaryFocus.unfocus();
+                FocusManager.instance.primaryFocus!.unfocus();
               },
               value : dropdownValue,
               icon: Icon(Icons.keyboard_arrow_down),
@@ -37,12 +37,12 @@ class _DropDownList extends State<DropDownList> {
               elevation: 16,
               isExpanded: true,
               style: TextStyle(color: Colors.black),
-              onChanged: (String newValue) {
+              onChanged: (String? newValue) {
                 setState(() {
                   dropdownValue = newValue;
                 });
               },
-              items: widget.comboList.map<DropdownMenuItem<String>>((String value) {
+              items: widget.comboList!.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
